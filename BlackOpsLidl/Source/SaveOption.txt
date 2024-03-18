@@ -1,7 +1,0 @@
-Sound [
-
-masterValue = 
-soundValue = 
-musicValue =
-
-]
