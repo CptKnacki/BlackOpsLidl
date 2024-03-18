@@ -17,7 +17,6 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -53,27 +52,24 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared" >
+  <ImportGroup Label="Shared">
   </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-    <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    </ImportGroup>
-
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -130,8 +126,272 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\AchievementsMenu.cpp" />
+    <ClCompile Include="..\Source\Action.cpp" />
+    <ClCompile Include="..\Source\ActionMap.cpp" />
+    <ClCompile Include="..\Source\Actor.cpp" />
+    <ClCompile Include="..\Source\ActorManager.cpp" />
+    <ClCompile Include="..\Source\Animation.cpp" />
+    <ClCompile Include="..\Source\AnimationComponent.cpp" />
+    <ClCompile Include="..\Source\AttackState.cpp" />
+    <ClCompile Include="..\Source\AttackToChase.cpp" />
+    <ClCompile Include="..\Source\AttackToDeath.cpp" />
+    <ClCompile Include="..\Source\AttackToPatrol.cpp" />
+    <ClCompile Include="..\Source\AudioMenu.cpp" />
+    <ClCompile Include="..\Source\Belfly.cpp" />
+    <ClCompile Include="..\Source\Bench.cpp" />
+    <ClCompile Include="..\Source\Boofly.cpp" />
+    <ClCompile Include="..\Source\Boss.cpp" />
+    <ClCompile Include="..\Source\BossAttackState.cpp" />
+    <ClCompile Include="..\Source\BossBrain.cpp" />
+    <ClCompile Include="..\Source\BossPatrolState.cpp" />
+    <ClCompile Include="..\Source\Brain.cpp" />
+    <ClCompile Include="..\Source\BrightnessMenu.cpp" />
+    <ClCompile Include="..\Source\Button.cpp" />
+    <ClCompile Include="..\Source\Camera.cpp" />
+    <ClCompile Include="..\Source\Canvas.cpp" />
+    <ClCompile Include="..\Source\CharmsMenu.cpp" />
+    <ClCompile Include="..\Source\CharmWidget.cpp" />
+    <ClCompile Include="..\Source\ChaseState.cpp" />
+    <ClCompile Include="..\Source\ChaseToAttack.cpp" />
+    <ClCompile Include="..\Source\ChaseToDeath.cpp" />
+    <ClCompile Include="..\Source\ChaseToPatrol.cpp" />
+    <ClCompile Include="..\Source\CollectableActor.cpp" />
+    <ClCompile Include="..\Source\CollisionComponent.cpp" />
+    <ClCompile Include="..\Source\Component.cpp" />
+    <ClCompile Include="..\Source\ControllerMenu.cpp" />
+    <ClCompile Include="..\Source\DeathMob.cpp" />
+    <ClCompile Include="..\Source\DeathState.cpp" />
+    <ClCompile Include="..\Source\Dragon.cpp" />
+    <ClCompile Include="..\Source\Enemy.cpp" />
+    <ClCompile Include="..\Source\EnemyBrain.cpp" />
+    <ClCompile Include="..\Source\EnemyLifeComponent.cpp" />
+    <ClCompile Include="..\Source\ExtrasMenu.cpp" />
+    <ClCompile Include="..\Source\FalseKnight.cpp" />
+    <ClCompile Include="..\Source\FileLoader.cpp" />
+    <ClCompile Include="..\Source\FontData.cpp" />
+    <ClCompile Include="..\Source\FontManager.cpp" />
+    <ClCompile Include="..\Source\Fx.cpp" />
+    <ClCompile Include="..\Source\FxData.cpp" />
+    <ClCompile Include="..\Source\FxManager.cpp" />
+    <ClCompile Include="..\Source\Game.cpp" />
+    <ClCompile Include="..\Source\Grub.cpp" />
+    <ClCompile Include="..\Source\HUD.cpp" />
+    <ClCompile Include="..\Source\HuskBully.cpp" />
+    <ClCompile Include="..\Source\InputManager.cpp" />
+    <ClCompile Include="..\Source\InspectComponent.cpp" />
+    <ClCompile Include="..\Source\InteractableActor.cpp" />
+    <ClCompile Include="..\Source\InteractionComponent.cpp" />
+    <ClCompile Include="..\Source\Inventory.cpp" />
+    <ClCompile Include="..\Source\Item.cpp" />
+    <ClCompile Include="..\Source\ItemWidget.cpp" />
+    <ClCompile Include="..\Source\KeyboardMenu.cpp" />
+    <ClCompile Include="..\Source\Kismet.cpp" />
+    <ClCompile Include="..\Source\Label.cpp" />
+    <ClCompile Include="..\Source\Lever.cpp" />
+    <ClCompile Include="..\Source\Lift.cpp" />
+    <ClCompile Include="..\Source\Macro.cpp" />
+    <ClCompile Include="..\Source\Main.cpp" />
+    <ClCompile Include="..\Source\MainMenu.cpp" />
+    <ClCompile Include="..\Source\Map.cpp" />
+    <ClCompile Include="..\Source\Menu.cpp" />
+    <ClCompile Include="..\Source\MenuManager.cpp" />
+    <ClCompile Include="..\Source\Merchand.cpp" />
+    <ClCompile Include="..\Source\Mob.cpp" />
+    <ClCompile Include="..\Source\MobAttackComponent.cpp" />
+    <ClCompile Include="..\Source\MobAttackState.cpp" />
+    <ClCompile Include="..\Source\MobBrain.cpp" />
+    <ClCompile Include="..\Source\MobMovementComponent.cpp" />
+    <ClCompile Include="..\Source\MobPatrolState.cpp" />
+    <ClCompile Include="..\Source\MovementComponent.cpp" />
+    <ClCompile Include="..\Source\MusicData.cpp" />
+    <ClCompile Include="..\Source\MusicManager.cpp" />
+    <ClCompile Include="..\Source\Object.cpp" />
+    <ClCompile Include="..\Source\OptionsMenu.cpp" />
+    <ClCompile Include="..\Source\PatrolComponent.cpp" />
+    <ClCompile Include="..\Source\PatrolState.cpp" />
+    <ClCompile Include="..\Source\PatrolToAttack.cpp" />
+    <ClCompile Include="..\Source\PatrolToChase.cpp" />
+    <ClCompile Include="..\Source\PatrolToDeath.cpp" />
+    <ClCompile Include="..\Source\PauseMenu.cpp" />
+    <ClCompile Include="..\Source\Player.cpp" />
+    <ClCompile Include="..\Source\PlayerAnimationComponent.cpp" />
+    <ClCompile Include="..\Source\PlayerAttackComponent.cpp" />
+    <ClCompile Include="..\Source\PlayerMovementComponent.cpp" />
+    <ClCompile Include="..\Source\PlayerSoundData.cpp" />
+    <ClCompile Include="..\Source\PlayerStat.cpp" />
+    <ClCompile Include="..\Source\PNJ.cpp" />
+    <ClCompile Include="..\Source\ProgressBar.cpp" />
+    <ClCompile Include="..\Source\ProgressLabel.cpp" />
+    <ClCompile Include="..\Source\PurchaseMenu.cpp" />
+    <ClCompile Include="..\Source\QuitGameMenu.cpp" />
+    <ClCompile Include="..\Source\QuitToMenu.cpp" />
+    <ClCompile Include="..\Source\ScrollBar.cpp" />
+    <ClCompile Include="..\Source\ShapeObject.cpp" />
+    <ClCompile Include="..\Source\ShapeWidget.cpp" />
+    <ClCompile Include="..\Source\ShopMenu.cpp" />
+    <ClCompile Include="..\Source\SoundData.cpp" />
+    <ClCompile Include="..\Source\SoundManager.cpp" />
+    <ClCompile Include="..\Source\SoundSystem.cpp" />
+    <ClCompile Include="..\Source\Spawner.cpp" />
+    <ClCompile Include="..\Source\State.cpp" />
+    <ClCompile Include="..\Source\TextObject.cpp" />
+    <ClCompile Include="..\Source\TextureData.cpp" />
+    <ClCompile Include="..\Source\TextureManager.cpp" />
+    <ClCompile Include="..\Source\TextWidget.cpp" />
+    <ClCompile Include="..\Source\Timer.cpp" />
+    <ClCompile Include="..\Source\TimerManager.cpp" />
+    <ClCompile Include="..\Source\TitleMenu.cpp" />
+    <ClCompile Include="..\Source\Transition.cpp" />
+    <ClCompile Include="..\Source\TriggerBox.cpp" />
+    <ClCompile Include="..\Source\VideoMenu.cpp" />
+    <ClCompile Include="..\Source\Widget.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Source\AchievementsMenu.h" />
+    <ClInclude Include="..\Source\Action.h" />
+    <ClInclude Include="..\Source\ActionMap.h" />
+    <ClInclude Include="..\Source\Actor.h" />
+    <ClInclude Include="..\Source\ActorManager.h" />
+    <ClInclude Include="..\Source\Animation.h" />
+    <ClInclude Include="..\Source\AnimationComponent.h" />
+    <ClInclude Include="..\Source\AttackState.h" />
+    <ClInclude Include="..\Source\AttackToChase.h" />
+    <ClInclude Include="..\Source\AttackToDeath.h" />
+    <ClInclude Include="..\Source\AttackToPatrol.h" />
+    <ClInclude Include="..\Source\AudioMenu.h" />
+    <ClInclude Include="..\Source\Belfly.h" />
+    <ClInclude Include="..\Source\Bench.h" />
+    <ClInclude Include="..\Source\BlackBoard.h" />
+    <ClInclude Include="..\Source\Boofly.h" />
+    <ClInclude Include="..\Source\Boss.h" />
+    <ClInclude Include="..\Source\BossAttackState.h" />
+    <ClInclude Include="..\Source\BossBrain.h" />
+    <ClInclude Include="..\Source\BossPatrolState.h" />
+    <ClInclude Include="..\Source\Brain.h" />
+    <ClInclude Include="..\Source\BrightnessMenu.h" />
+    <ClInclude Include="..\Source\Button.h" />
+    <ClInclude Include="..\Source\Camera.h" />
+    <ClInclude Include="..\Source\Canvas.h" />
+    <ClInclude Include="..\Source\CharmsMenu.h" />
+    <ClInclude Include="..\Source\CharmWidget.h" />
+    <ClInclude Include="..\Source\ChaseState.h" />
+    <ClInclude Include="..\Source\ChaseToAttack.h" />
+    <ClInclude Include="..\Source\ChaseToDeath.h" />
+    <ClInclude Include="..\Source\ChaseToPatrol.h" />
+    <ClInclude Include="..\Source\CollectableActor.h" />
+    <ClInclude Include="..\Source\CollisionComponent.h" />
+    <ClInclude Include="..\Source\Component.h" />
+    <ClInclude Include="..\Source\ControllerMenu.h" />
+    <ClInclude Include="..\Source\DeathMob.h" />
+    <ClInclude Include="..\Source\DeathState.h" />
+    <ClInclude Include="..\Source\Dragon.h" />
+    <ClInclude Include="..\Source\Enemy.h" />
+    <ClInclude Include="..\Source\EnemyBrain.h" />
+    <ClInclude Include="..\Source\EnemyLifeComponent.h" />
+    <ClInclude Include="..\Source\ExtrasMenu.h" />
+    <ClInclude Include="..\Source\FalseKnight.h" />
+    <ClInclude Include="..\Source\FileLoader.h" />
+    <ClInclude Include="..\Source\FontData.h" />
+    <ClInclude Include="..\Source\FontManager.h" />
+    <ClInclude Include="..\Source\Fx.h" />
+    <ClInclude Include="..\Source\FxData.h" />
+    <ClInclude Include="..\Source\FxManager.h" />
+    <ClInclude Include="..\Source\Game.h" />
+    <ClInclude Include="..\Source\Grub.h" />
+    <ClInclude Include="..\Source\HUD.h" />
+    <ClInclude Include="..\Source\HuskBully.h" />
+    <ClInclude Include="..\Source\IManagable.h" />
+    <ClInclude Include="..\Source\IManager.h" />
+    <ClInclude Include="..\Source\InputManager.h" />
+    <ClInclude Include="..\Source\InspectComponent.h" />
+    <ClInclude Include="..\Source\InteractableActor.h" />
+    <ClInclude Include="..\Source\InteractionComponent.h" />
+    <ClInclude Include="..\Source\inventory.h" />
+    <ClInclude Include="..\Source\Item.h" />
+    <ClInclude Include="..\Source\ItemWidget.h" />
+    <ClInclude Include="..\Source\KeyboardMenu.h" />
+    <ClInclude Include="..\Source\Kismet.h" />
+    <ClInclude Include="..\Source\Label.h" />
+    <ClInclude Include="..\Source\Lever.h" />
+    <ClInclude Include="..\Source\Lift.h" />
+    <ClInclude Include="..\Source\Macro.h" />
+    <ClInclude Include="..\Source\MainMenu.h" />
+    <ClInclude Include="..\Source\Map.h" />
+    <ClInclude Include="..\Source\Menu.h" />
+    <ClInclude Include="..\Source\MenuManager.h" />
+    <ClInclude Include="..\Source\Merchand.h" />
+    <ClInclude Include="..\Source\Mob.h" />
+    <ClInclude Include="..\Source\MobAttackComponent.h" />
+    <ClInclude Include="..\Source\MobAttackState.h" />
+    <ClInclude Include="..\Source\MobBrain.h" />
+    <ClInclude Include="..\Source\MobMovementComponent.h" />
+    <ClInclude Include="..\Source\MobPatrolState.h" />
+    <ClInclude Include="..\Source\MovementComponent.h" />
+    <ClInclude Include="..\Source\MusicData.h" />
+    <ClInclude Include="..\Source\MusicManager.h" />
+    <ClInclude Include="..\Source\Object.h" />
+    <ClInclude Include="..\Source\OptionsMenu.h" />
+    <ClInclude Include="..\Source\PatrolComponent.h" />
+    <ClInclude Include="..\Source\PatrolState.h" />
+    <ClInclude Include="..\Source\PatrolToAttack.h" />
+    <ClInclude Include="..\Source\PatrolToChase.h" />
+    <ClInclude Include="..\Source\PatrolToDeath.h" />
+    <ClInclude Include="..\Source\PauseMenu.h" />
+    <ClInclude Include="..\Source\Player.h" />
+    <ClInclude Include="..\Source\PlayerAnimationComponent.h" />
+    <ClInclude Include="..\Source\PlayerAttackComponent.h" />
+    <ClInclude Include="..\Source\PlayerMovementComponent.h" />
+    <ClInclude Include="..\Source\PlayerSound.h" />
+    <ClInclude Include="..\Source\PlayerSoundData.h" />
+    <ClInclude Include="..\Source\PlayerStat.h" />
+    <ClInclude Include="..\Source\PNJ.h" />
+    <ClInclude Include="..\Source\ProgressBar.h" />
+    <ClInclude Include="..\Source\ProgressLabel.h" />
+    <ClInclude Include="..\Source\PurchaseMenu.h" />
+    <ClInclude Include="..\Source\QuitGameMenu.h" />
+    <ClInclude Include="..\Source\QuitToMenu.h" />
+    <ClInclude Include="..\Source\ScrollBar.h" />
+    <ClInclude Include="..\Source\ShapeObject.h" />
+    <ClInclude Include="..\Source\ShapeWidget.h" />
+    <ClInclude Include="..\Source\ShopMenu.h" />
+    <ClInclude Include="..\Source\Singleton.h" />
+    <ClInclude Include="..\Source\SoundData.h" />
+    <ClInclude Include="..\Source\SoundManager.h" />
+    <ClInclude Include="..\Source\SoundSystem.h" />
+    <ClInclude Include="..\Source\Spawner.h" />
+    <ClInclude Include="..\Source\State.h" />
+    <ClInclude Include="..\Source\TextObject.h" />
+    <ClInclude Include="..\Source\TextureData.h" />
+    <ClInclude Include="..\Source\TextureManager.h" />
+    <ClInclude Include="..\Source\TextWidget.h" />
+    <ClInclude Include="..\Source\Timer.h" />
+    <ClInclude Include="..\Source\TimerManager.h" />
+    <ClInclude Include="..\Source\TitleMenu.h" />
+    <ClInclude Include="..\Source\Transition.h" />
+    <ClInclude Include="..\Source\TriggerBox.h" />
+    <ClInclude Include="..\Source\VideoMenu.h" />
+    <ClInclude Include="..\Source\Widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Source\BLLDPOI" />
+    <None Include="..\Source\openal32.dll" />
+    <None Include="..\Source\SaveOption" />
+    <None Include="..\Source\sfml-audio-2.dll" />
+    <None Include="..\Source\sfml-audio-d-2.dll" />
+    <None Include="..\Source\sfml-graphics-2.dll" />
+    <None Include="..\Source\sfml-graphics-d-2.dll" />
+    <None Include="..\Source\sfml-network-2.dll" />
+    <None Include="..\Source\sfml-network-d-2.dll" />
+    <None Include="..\Source\sfml-system-2.dll" />
+    <None Include="..\Source\sfml-system-d-2.dll" />
+    <None Include="..\Source\sfml-window-2.dll" />
+    <None Include="..\Source\sfml-window-d-2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Source\SaveOption.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
