@@ -1,6 +1,7 @@
 #include "GridNavigation.h"
 #include "Node.h"
 #include "Game.h"
+#include "Macro.h"
 
 GridNavigation::GridNavigation(int _size, int _gap, Vector2f _position)
 {
@@ -72,7 +73,21 @@ void GridNavigation::ShowNodes()
     {
         sf::CircleShape _shape(5.0f);
         _shape.setPosition(_node->position);
+        SetOriginAtMiddle(&_shape);
         _shape.setFillColor(Color::White);
         Game::GetWindow().draw(_shape);
+
+
+        for (int i = 0; i < _node->successors.size(); i++)
+        {
+            sf::VertexArray lines(sf::LinesStrip, 2);
+            lines[0].position = _node->position;
+            lines[1].position = data->nodes[_node->successors[i]]->position;
+            lines[0].color = Color::Green;
+            lines[1].color = Color::Green;
+
+            Game::GetWindow().draw(lines);
+        }
+
     }
 }

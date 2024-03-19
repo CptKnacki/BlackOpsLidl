@@ -11,6 +11,9 @@ using namespace std;
 
 int main()
 {
+    //_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
+    //_CrtDumpMemoryLeaks();
+
 	locale::global(locale(""));
 	srand(static_cast<unsigned>(time(nullptr)));
     Game _game;

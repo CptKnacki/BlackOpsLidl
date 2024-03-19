@@ -19,7 +19,6 @@ void ZombieSpawner::SpawnZombieWave()
 	currentWaveCount = 0;
 	inBetweenSpawnTimer->Start();
 
-
 }
 
 void ZombieSpawner::SpawnZombie()

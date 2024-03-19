@@ -10,8 +10,11 @@ class ZombieWaveManager : public Singleton<ZombieWaveManager>
 	Timer* inBetweenWaveTimer = nullptr;
 	float timeBetweenWave = 3.0f;
 
+	ZombieSpawner* spawnerTest;
+
 public:
 	ZombieWaveManager();
+	~ZombieWaveManager();
 
 	void AddSpawner(ZombieSpawner* _spawner) { allSpawners.push_back(_spawner); }
 

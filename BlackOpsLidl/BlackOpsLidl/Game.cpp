@@ -31,7 +31,7 @@ Game::Game()
 	camera = new Camera();
 	brightness = new Brightness();
 
-	grid = new GridNavigation(20, 50, Vector2f(-600,-500));
+	grid = new GridNavigation(17, 50, Vector2f(-300,-400));
 } 
 
 Game::~Game()

@@ -5,11 +5,17 @@ ZombieWaveManager::ZombieWaveManager()
 
 }
 
+ZombieWaveManager::~ZombieWaveManager()
+{
+    delete spawnerTest;
+    spawnerTest = nullptr;
+}
+
 void ZombieWaveManager::Init()
 {
     inBetweenWaveTimer = new Timer([&]() { StartNewWave(); }, seconds(timeBetweenWave), false, false);
 
-    ZombieSpawner* _spawner = new ZombieSpawner(5, Vector2f(0, 0)); // TODO à retirer ( juste pour les tests )
+    //spawnerTest = new ZombieSpawner(5, Vector2f(0, 0)); // TODO à retirer ( juste pour les tests )
 }
 
 void ZombieWaveManager::Update()

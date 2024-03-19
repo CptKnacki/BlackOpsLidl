@@ -11,8 +11,9 @@ void Node::CheckForObstacle()
 {
 	HitInfo _info;
 	vector<Actor*> _actorToIgnore;
-	cout << "NODE CHECK " + to_string(position.x) + " / " + to_string(position.y) + "\n";
 	
+	cout << to_string(isOpen) + "\n";
+
 	//BoxCast(FloatRect(position, size), _info, _actorToIgnore);
 
 }

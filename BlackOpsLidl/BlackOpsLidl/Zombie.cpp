@@ -34,6 +34,9 @@ void Zombie::Update(const float _deltaTime)
 
 void Zombie::FollowPathToPlayer()
 {
-	SetShapePosition(Game::GetPlayer()->GetShapePosition());
+	//SetShapePosition(Game::GetPlayer()->GetShapePosition());
+
+
+	vector<Node*> _co = navigation->GetAstarAlgo()->correctPath;
 
 }

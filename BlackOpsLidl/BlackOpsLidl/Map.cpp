@@ -308,7 +308,7 @@ void Map::InitPlatforms()
 
 void Map::Init()
 {
-	//MapData _mapdata = LoadMapData(GetLevelFromIndex(currentLevel));
+	MapData _mapdata = LoadMapData(GetLevelFromIndex(currentLevel));
 	//bench->Init();
 	//merchand->	Init();
 	//pnj->Init();
