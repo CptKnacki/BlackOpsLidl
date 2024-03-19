@@ -308,7 +308,7 @@ void Map::InitPlatforms()
 
 void Map::Init()
 {
-	MapData _mapdata = LoadMapData(GetLevelFromIndex(currentLevel));
+	//MapData _mapdata = LoadMapData(GetLevelFromIndex(currentLevel));
 	//bench->Init();
 	//merchand->	Init();
 	//pnj->Init();
@@ -316,9 +316,9 @@ void Map::Init()
 
 
 	// BACKGROUND LOAD
-	ShapeObject* _background = new ShapeObject(ShapeData(_mapdata.backgroundPos + Vector2f(0, -_mapdata.backgroundSize.y + 220), _mapdata.backgroundSize, _mapdata.backgroundPath));
-	_background->GetDrawable()->setOrigin(0.0f, 0.0f);
-	drawables.push_back(_background);
+	//ShapeObject* _background = new ShapeObject(ShapeData(_mapdata.backgroundPos + Vector2f(0, -_mapdata.backgroundSize.y + 220), _mapdata.backgroundSize, _mapdata.backgroundPath));
+	//_background->GetDrawable()->setOrigin(0.0f, 0.0f);
+	//drawables.push_back(_background);
 
 	////TODO move
 	//ShapeObject* _barrack = new ShapeObject(ShapeData(Vector2f(1915.0f, -SCREEN_HEIGHT - 100.0f + 20.0f), Vector2f(3613.0f, 908.0f), "Levels/Environment.png"));

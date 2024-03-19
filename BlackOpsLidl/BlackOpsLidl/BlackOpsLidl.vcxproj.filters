@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Navigation">
+      <UniqueIdentifier>{d7778d8f-0d01-4b4e-b55c-07cb1d62c300}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Zombie">
+      <UniqueIdentifier>{9ca502f0-ec5d-4895-a0bb-50de5472ac3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -388,6 +394,39 @@
     <ClCompile Include="Widget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AstarAlgo.cpp">
+      <Filter>Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="GridNavigation.cpp">
+      <Filter>Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="GridPointData.cpp">
+      <Filter>Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="IANavigationComponent.cpp">
+      <Filter>Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieAttackState.cpp">
+      <Filter>Zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieBrain.cpp">
+      <Filter>Zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieChaseState.cpp">
+      <Filter>Zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieSpawner.cpp">
+      <Filter>Zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieWaveManager.cpp">
+      <Filter>Zombie</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AchievementsMenu.h">
@@ -761,6 +800,39 @@
     </ClInclude>
     <ClInclude Include="Widget.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AstarAlgo.h">
+      <Filter>Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="GridNavigation.h">
+      <Filter>Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="GridPointData.h">
+      <Filter>Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="IANavigationComponent.h">
+      <Filter>Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieAttackState.h">
+      <Filter>Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieBrain.h">
+      <Filter>Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieChaseState.h">
+      <Filter>Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieSpawner.h">
+      <Filter>Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieWaveManager.h">
+      <Filter>Zombie</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

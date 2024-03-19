@@ -6,9 +6,12 @@
 #include "Map.h"
 #include "Player.h"
 #include "Camera.h"
+#include "GridNavigation.h"
 
 using namespace std;
 using namespace sf;
+
+class Zombie;
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
@@ -59,6 +62,8 @@ private:
 	static Camera* camera;
 	static Brightness* brightness;
 
+	static GridNavigation* grid;
+
 public:
 	static RenderWindow& GetWindow()
 	{
@@ -84,6 +89,11 @@ public:
 	{
 		return brightness;
 	}
+	static GridNavigation* GetNavigationGrid()
+	{
+		return grid;
+	}
+
 
 public:
 	Game();

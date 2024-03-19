@@ -2,38 +2,36 @@
 #include "TimerManager.h"
 #include "InputManager.h"
 #include "ActorManager.h"
+#include "ZombieWaveManager.h"
 #include "HUD.h"
 #include "Widget.h"
 #include "Spawner.h"
 
 #define PATH_PLAYER "Animations/knighModif.png"
 
-#include "HuskBully.h"
-#include "Boofly.h"
-#include "Belfly.h"
-#include "FalseKnight.h"
 
 RenderWindow Game::window;
 Map* Game::map;
 Player* Game::player;
 Camera* Game::camera;
 Brightness* Game::brightness;
+GridNavigation* Game::grid;
 
 #include "TriggerBox.h"
 
-#define PATH_BOOFLY "Animations/Boofly.png"
-#define PATH_BELFLY "Animations/BelflyModif.png"
-#define PATH_HUSK_BULLY "Animations/HuskBully.png"
-#define PATH_DEATHMOB "Animations/DeathMob.png"
-#define PATH_FALSE_KNIGHT "Animations/FalseKnight.png"
+#define PATH_ZOMBIE "Animations/Zombie.png"
+#define PATH_TEST_ZOMBIE "Animations/TEST_Zombie.png"
+#include "Zombie.h"
 
 Game::Game()
 {
-	menu = new MainMenu();
-	player = new Player("Player", ShapeData(Vector2f(100.0f, -2000.0f), Vector2f(75.0f, 75.0f), PATH_PLAYER));
-	map = new Map();
+	//menu = new MainMenu();
+	player = new Player("Player", ShapeData(Vector2f(0, 0), Vector2f(75.0f, 75.0f), PATH_PLAYER));
+	//map = new Map();
 	camera = new Camera();
 	brightness = new Brightness();
+
+	grid = new GridNavigation(20, 50, Vector2f(-600,-500));
 } 
 
 Game::~Game()
@@ -45,7 +43,7 @@ Game::~Game()
 
 void Game::Start()
 {
-	window.create(VideoMode(1920, 1080), "HollowKnight", Style::Fullscreen);
+	window.create(VideoMode(1920, 1080), "BlackOpsLidl", Style::Fullscreen);
 
 	TimerManager::GetInstance().SetRenderCallback(bind(&Game::UpdateWindow, this));
 	new Timer([&]() { Init(); }, seconds(1.0f), true, false);
@@ -53,34 +51,39 @@ void Game::Start()
 
 void Game::Init()
 {
-	menu->Init();
-	map->Init();
-	camera->Init();
-	brightness->Init();
+	//menu->Init();
+	//map->Init();
+	//camera->Init();
+	//brightness->Init();
+
+	grid->Generate();
+	//Vector2f _sizeZombie = Vector2f(80, 80);
+	//
+	//ShapeData _dataZombie = ShapeData(Vector2f(150.0f, 150.0f), _sizeZombie, PATH_ZOMBIE);
+	//Zombie* _zombie = new Zombie(_dataZombie);
+	//_zombie->Init();
+	
+
 
 	/*TriggerBox* _box = new TriggerBox(ShapeData(Vector2f(100.0f, 0.0f), Vector2f(200.0f, 200.0f), ""), [&]() {
 		cout << "coucou" << endl;
 	});
 
 	_box->GetComponent<CollisionComponent>()->GetBoxCollision()->GetDrawable()->setOutlineThickness(-5.0f);
-	_box->GetComponent<CollisionComponent>()->GetBoxCollision()->GetDrawable()->setFillColor(Color::Red);*/
-
-	Vector2f _sizeBoofly = Vector2f(150.0f, 180.0f);
-	Vector2f _sizeBelfly = Vector2f(50.0f, 50.0f);
-	Vector2f _sizeHuskBully = Vector2f(75.0f, 75.0f);
-	Vector2f _sizeFalseKnight = Vector2f(700.0f, 500.0f);
-
-	ShapeData _dataBoofly = ShapeData(Vector2f(200.0f, -350.0f), _sizeBoofly, PATH_BOOFLY, IntRect(0, 17, 315, 345));
-	Boofly* _boofly = new Boofly(_dataBoofly);
-	_boofly->Init();
-
-	ShapeData _dataHuskBully = ShapeData(Vector2f(300.0f, -150.0f), _sizeHuskBully, PATH_HUSK_BULLY, IntRect(5, 21, 105, 135));
-	HuskBully* _huskBully = new HuskBully(_dataHuskBully);
-	_huskBully->Init();
-
+	_box->GetComponent<CollisionComponent>()->GetBoxCollision()->GetDrawable()->setFillColor(Color::Red);
+	//
+	//Vector2f _sizeBoofly = Vector2f(150.0f, 180.0f);
+	//Vector2f _sizeBelfly = Vector2f(50.0f, 50.0f);
+	//Vector2f _sizeHuskBully = Vector2f(75.0f, 75.0f);
+	//Vector2f _sizeFalseKnight = Vector2f(700.0f, 500.0f);
+	//
+	//ShapeData _dataHuskBully = ShapeData(Vector2f(300.0f, -150.0f), _sizeHuskBully, PATH_HUSK_BULLY, IntRect(5, 21, 105, 135));
+	//HuskBully* _huskBully = new HuskBully(_dataHuskBully);
+	//_huskBully->Init();
+	//
 	//ShapeData _data = ShapeData(_positionFalseKnight, _sizeFalseKnight, PATH_FALSE_KNIGHT);
 	//FalseKnight* _falseKnight = new FalseKnight(_data);
-	//_falseKnight->Init();
+	//_falseKnight->Init();*/
 }
 
 void Game::Update()
@@ -91,6 +94,7 @@ void Game::Update()
 		if (!InputManager::GetInstance().Update(window)) break;
 		player->GetLight()->setPosition(player->GetShapePosition().x + 50.0f, player->GetShapePosition().y + 50.0f);
 		ActorManager::GetInstance().Update();
+		ZombieWaveManager::GetInstance().Update();
 	}
 }
 
@@ -104,11 +108,14 @@ void Game::UpdateWindow()
 	window.setView(camera->GetView());
 	//DrawWorldUIs();
 
-	DrawMap();
+	//DrawMap();
 	DrawActors();
 	//window.draw(*player->GetLight());
 
-	DrawUIs();
+	grid->ShowNodes();
+
+
+	//DrawUIs();
 	window.display();
 }
 
@@ -165,7 +172,7 @@ void Game::DrawUIs()
 
 void Game::Stop()
 {
-	cout << "A bient�t !" << endl;
+	cout << "A bientot !" << endl;
 }
 
 
