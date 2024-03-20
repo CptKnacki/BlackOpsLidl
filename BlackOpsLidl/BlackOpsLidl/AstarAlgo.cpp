@@ -59,7 +59,6 @@ void AstarAlgo::ComputePath(Node* _start, Node* _end)
 
 vector<Node*> AstarAlgo::GetFinalPath(Node* _start, Node* _end)
 {
-    cout << "FINAl PATH FOUND\n";
 
     vector<Node*> _path;
     Node* _current = _end;
@@ -67,7 +66,6 @@ vector<Node*> AstarAlgo::GetFinalPath(Node* _start, Node* _end)
 
     while (_current != _start)
     {
-        cout << "oskour \n";
 
         _path.push_back(_current->parent);
         _current = _current->parent;

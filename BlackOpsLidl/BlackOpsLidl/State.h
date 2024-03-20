@@ -23,9 +23,14 @@ public:
 	Transition* GetNextTransition()
 	{
 		Transition* _nextTransition = nextTransition;
-		nextTransition = nullptr;
+		//nextTransition = nullptr;
 
 		return _nextTransition; 
+	}
+
+	void SetNextTransition(Transition* _transition)
+	{
+		nextTransition = _transition;
 	}
 
 public:

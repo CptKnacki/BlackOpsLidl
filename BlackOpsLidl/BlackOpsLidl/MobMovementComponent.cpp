@@ -26,7 +26,7 @@ void MobMovementComponent::SetDestination(const Vector2f& _destination, const bo
 	}
 	else
 	{
-		owner->GetComponent<AnimationComponent>()->RunAnimation("Running", lastDirection.x);
+		//owner->GetComponent<AnimationComponent>()->RunAnimation("Running", lastDirection.x);
 	}
 }
 

@@ -17,13 +17,13 @@ State::~State()
 
 void State::Update(const float _deltaTime)
 {
-	for (Transition* _transition : transitions)
-	{
-		if (_transition->CanNext())
-		{
-			nextTransition = _transition;
-			return;
-		}
-	}
-	nextTransition = nullptr;
+	//for (Transition* _transition : transitions)
+	//{
+	//	if (_transition->CanNext())
+	//	{
+	//		nextTransition = _transition;
+	//		return;
+	//	}
+	//}
+	//nextTransition = nullptr;
 }

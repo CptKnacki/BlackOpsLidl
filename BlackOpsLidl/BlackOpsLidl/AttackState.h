@@ -6,9 +6,9 @@
 
 class AttackState : public State
 {
-	AttackToDeath* attackToDeath;
-	InspectComponent* inspect;
-	MobAttackComponent* attack;
+	//AttackToDeath* attackToDeath;
+	//InspectComponent* inspect;
+	//MobAttackComponent* attack;
 protected:
 	AnimationComponent* animation;
 

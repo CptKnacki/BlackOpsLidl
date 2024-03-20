@@ -8,7 +8,6 @@ class ZombieBrain : public EnemyBrain
 	ZombieChaseState* chase = nullptr;
 	ZombieAttackState* attack = nullptr;
 
-
 public:
 	ChaseState* GetChaseState() const
 	{
