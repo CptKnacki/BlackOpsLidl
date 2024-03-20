@@ -16,7 +16,6 @@ Zombie::Zombie(const ShapeData& _data) : Enemy(STRING_ID("Zombie"), _data)
 	components.push_back(brain);
 
 
-
 	ZombieWaveManager::GetInstance().AddZombie(this);
 }
 

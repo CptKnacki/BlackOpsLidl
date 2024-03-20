@@ -36,7 +36,6 @@ void PlayerAttackComponent::SpecialAttack()
 			}
 			//_mob->GetLife()->SetLife(0);
 			//_mob->Death();
-			Game::GetPlayer()->GetStats()->UseMana(10.0f);
 		}
 	}
 
@@ -55,7 +54,6 @@ void PlayerAttackComponent::SpecialAttack()
 			}
 			//_mob->GetLife()->SetLife(0);
 			//_mob->Death();
-			Game::GetPlayer()->GetStats()->UseMana(1.0f);
 		}
 	}
 

@@ -19,6 +19,9 @@
     <Filter Include="Zombie">
       <UniqueIdentifier>{9ca502f0-ec5d-4895-a0bb-50de5472ac3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GPE">
+      <UniqueIdentifier>{099c365d-58c2-4b83-bc6d-e9b58edd7cd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -427,6 +430,9 @@
     <ClCompile Include="ZombieWaveManager.cpp">
       <Filter>Zombie</Filter>
     </ClCompile>
+    <ClCompile Include="GPE_Fence.cpp">
+      <Filter>GPE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AchievementsMenu.h">
@@ -833,6 +839,9 @@
     </ClInclude>
     <ClInclude Include="ZombieWaveManager.h">
       <Filter>Zombie</Filter>
+    </ClInclude>
+    <ClInclude Include="GPE_Fence.h">
+      <Filter>GPE</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
