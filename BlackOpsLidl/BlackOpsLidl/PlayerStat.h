@@ -11,20 +11,15 @@ class PlayerMovementComponent;
 
 class PlayerStat : public Menu
 {
-	// Life
-	int currentLifesCount;
-	int currentMaxLifesCount;
-	vector<ShapeWidget*> lifeWigets;
+	int currentLife;
+	int maxLife;
 
-	// Mana
-	ProgressBar* manaBar;
-	float manaUsed;
-	float manaUsedLifespan;
-	Timer* resetManaTimer;
+	int currentStamina;
+	int maxStamina;
 
-	// Geos
-	int geosCount;
-	Label* geosCountText;
+	int moneyCount;
+
+	int headShotPercentage;
 
 	// Components
 	PlayerAnimationComponent* animation;
@@ -35,19 +30,19 @@ class PlayerStat : public Menu
 public:
 	void SetCurrentLife(const int _newLife)
 	{
-		currentLifesCount = _newLife;
+		currentLife = _newLife;
 	}
 	int GetCurrentLife() const
 	{
-		return currentLifesCount;
+		return currentLife;
 	}
 	int GetMaxLife() const
 	{
-		return currentMaxLifesCount;
+		return maxLife;
 	}
-	int GetGeos() const
+	int GetMoney() const
 	{
-		return geosCount;
+		return moneyCount;
 	}
 private:
 	string ComputeLifePath(const bool _toAdd) const
@@ -60,10 +55,8 @@ public:
 
 public:
 	void Init();
-	void UseMana(const float _factor);
-	void StopUsingMana();
+	void UseStamina(const int _factor);
 	void UpdateLife(const int _count);
-	void AddLife();
-	void UpdateGeos(const int _factor);
+	void UpdateMoney(const int _factor);
 	void Death();
 };
