@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include "Timer.h"
 #include "Game.h"
+#include "Zombie.h"
 
 
 IANavigationComponent::IANavigationComponent(Actor* _owner) :
@@ -22,7 +23,12 @@ void IANavigationComponent::Request()
 	if (!endTarget || !gridData)
 		return;
 
-	cout << "OIA";
+	Zombie* _zombie = dynamic_cast<Zombie*>(owner);
+	if (_zombie)
+		_zombie->ResetNodeIndex();
+
+	
 	algoNavigation->ComputePath(gridData->GetClosestNode(owner->GetShapePosition()), gridData->GetClosestNode(endTarget->GetShapePosition()));
+
 	
 }

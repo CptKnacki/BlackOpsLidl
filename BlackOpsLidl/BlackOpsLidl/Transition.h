@@ -15,6 +15,11 @@ public:
 		return nextState;
 	}
 
+	void SetNextState(State* _state)
+	{
+		nextState = _state;
+	}
+
 public:
 	Transition(BlackBoard* _blackBoard);
 

@@ -16,11 +16,11 @@ void Brain::Update(const float _deltaTime)
 {
 	currentState->Update(_deltaTime);
 
-	if (Transition* _transition = currentState->GetNextTransition())
+	if (currentState->GetNextTransition()->CanNext())
 	{
 		currentState->Stop();
 
-		currentState = _transition->GetNextState();
+		currentState = currentState->GetNextTransition()->GetNextState();
 
 		currentState->Start();
 	}
