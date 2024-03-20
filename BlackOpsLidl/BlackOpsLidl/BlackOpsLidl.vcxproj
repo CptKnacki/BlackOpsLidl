@@ -82,7 +82,10 @@
     <ClCompile Include="FxData.cpp" />
     <ClCompile Include="FxManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GPE_BonusDrink.cpp" />
+    <ClCompile Include="GPE_CraftingTable.cpp" />
     <ClCompile Include="GPE_Fence.cpp" />
+    <ClCompile Include="GPE_VendingMachine.cpp" />
     <ClCompile Include="GridNavigation.cpp" />
     <ClCompile Include="GridPointData.cpp" />
     <ClCompile Include="Grub.cpp" />
@@ -217,7 +220,10 @@
     <ClInclude Include="FxData.h" />
     <ClInclude Include="FxManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GPE_BonusDrink.h" />
+    <ClInclude Include="GPE_CraftingTable.h" />
     <ClInclude Include="GPE_Fence.h" />
+    <ClInclude Include="GPE_VendingMachine.h" />
     <ClInclude Include="GridNavigation.h" />
     <ClInclude Include="GridPointData.h" />
     <ClInclude Include="Grub.h" />
