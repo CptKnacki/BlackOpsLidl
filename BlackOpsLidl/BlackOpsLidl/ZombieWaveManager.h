@@ -7,6 +7,7 @@
 class ZombieWaveManager : public Singleton<ZombieWaveManager>
 {
 	vector<ZombieSpawner*> allSpawners;
+	vector<Zombie*> allZombies;
 	Timer* inBetweenWaveTimer = nullptr;
 	float timeBetweenWave = 3.0f;
 
@@ -17,11 +18,13 @@ public:
 	~ZombieWaveManager();
 
 	void AddSpawner(ZombieSpawner* _spawner) { allSpawners.push_back(_spawner); }
+	void AddZombie(Zombie* _zombie) { allZombies.push_back(_zombie); }
 
 public:
 	void Init();
 	void Update();
 	bool CheckEndOfWave();
 	void StartNewWave();
+	void DrawZombiesPath();
 };
 

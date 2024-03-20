@@ -28,4 +28,5 @@ void Node::ResetNode()
 	H = MAX_FLOAT;
 	G = MAX_FLOAT;
 	parent = nullptr;
+	hasBeenVisited = false;
 }

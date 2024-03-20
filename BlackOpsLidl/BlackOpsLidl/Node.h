@@ -3,7 +3,7 @@
 #include "Object.h"
 
 
-#define MAX_FLOAT 999999.0f
+#define MAX_FLOAT 99999999999.0f
 
 class GridPointData;
 
@@ -23,6 +23,7 @@ public:
 	float F = G + H; // Coût total //
 
 	bool isOpen = true;
+	bool hasBeenVisited = false;
 
 public:
 	Node(GridPointData* _data, Vector2f _position);

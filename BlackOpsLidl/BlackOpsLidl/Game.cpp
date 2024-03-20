@@ -57,11 +57,7 @@ void Game::Init()
 	//brightness->Init();
 
 	grid->Generate();
-	//Vector2f _sizeZombie = Vector2f(80, 80);
-	//
-	//ShapeData _dataZombie = ShapeData(Vector2f(150.0f, 150.0f), _sizeZombie, PATH_ZOMBIE);
-	//Zombie* _zombie = new Zombie(_dataZombie);
-	//_zombie->Init();
+	Vector2f _sizeZombie = Vector2f(80, 80);
 	
 
 
@@ -113,6 +109,7 @@ void Game::UpdateWindow()
 	//window.draw(*player->GetLight());
 
 	grid->ShowNodes();
+	ZombieWaveManager::GetInstance().DrawZombiesPath();
 
 
 	//DrawUIs();

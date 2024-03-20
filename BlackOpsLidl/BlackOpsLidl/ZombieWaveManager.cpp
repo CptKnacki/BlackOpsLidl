@@ -15,7 +15,9 @@ void ZombieWaveManager::Init()
 {
     inBetweenWaveTimer = new Timer([&]() { StartNewWave(); }, seconds(timeBetweenWave), false, false);
 
-    //spawnerTest = new ZombieSpawner(5, Vector2f(0, 0)); // TODO à retirer ( juste pour les tests )
+    spawnerTest = new ZombieSpawner(0, Vector2f(400, 400)); // TODO à retirer ( juste pour les tests )
+    spawnerTest = new ZombieSpawner(0, Vector2f(550, -300)); // TODO à retirer ( juste pour les tests )
+    spawnerTest = new ZombieSpawner(0, Vector2f(-250, -100)); // TODO à retirer ( juste pour les tests )
 }
 
 void ZombieWaveManager::Update()
@@ -53,5 +55,15 @@ void ZombieWaveManager::StartNewWave()
 
         _spawner->AddZombieCount(1);
         _spawner->SpawnZombieWave();
+    }
+}
+
+void ZombieWaveManager::DrawZombiesPath()
+{
+    for (Zombie* _zombie : allZombies)
+    {
+        if (!_zombie)
+            continue;
+        _zombie->DrawCurrentPath();
     }
 }

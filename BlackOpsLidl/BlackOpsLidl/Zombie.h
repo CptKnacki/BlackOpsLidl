@@ -15,6 +15,6 @@ public:
 	virtual void Init() override;
 	virtual void Update(const float _deltaTime) override;
 	void FollowPathToPlayer();
-
+	void DrawCurrentPath();
 };
 

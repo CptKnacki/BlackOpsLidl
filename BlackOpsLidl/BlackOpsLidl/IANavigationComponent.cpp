@@ -13,8 +13,8 @@ IANavigationComponent::IANavigationComponent(Actor* _owner) :
 void IANavigationComponent::Init()
 {
 	endTarget = Game::GetPlayer();
-	requestTimer = new Timer([&]() { Request(); }, seconds(1), true, true);
 	gridData = Game::GetNavigationGrid()->data;
+	requestTimer = new Timer([&]() { Request(); }, seconds(1), true, true);
 }
 
 void IANavigationComponent::Request()
@@ -22,6 +22,7 @@ void IANavigationComponent::Request()
 	if (!endTarget || !gridData)
 		return;
 
+	cout << "OIA";
 	algoNavigation->ComputePath(gridData->GetClosestNode(owner->GetShapePosition()), gridData->GetClosestNode(endTarget->GetShapePosition()));
 	
 }

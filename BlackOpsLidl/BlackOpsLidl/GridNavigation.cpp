@@ -78,16 +78,16 @@ void GridNavigation::ShowNodes()
         Game::GetWindow().draw(_shape);
 
 
-        for (int i = 0; i < _node->successors.size(); i++)
-        {
-            sf::VertexArray lines(sf::LinesStrip, 2);
-            lines[0].position = _node->position;
-            lines[1].position = data->nodes[_node->successors[i]]->position;
-            lines[0].color = Color::Green;
-            lines[1].color = Color::Green;
-
-            Game::GetWindow().draw(lines);
-        }
+        //for (int i = 0; i < _node->successors.size(); i++)
+        //{
+        //    sf::VertexArray lines(sf::LinesStrip, 2);
+        //    lines[0].position = _node->position;
+        //    lines[1].position = data->nodes[_node->successors[i]]->position;
+        //    lines[0].color = Color::Red;
+        //    lines[1].color = Color::Red;
+        //
+        //    Game::GetWindow().draw(lines);
+        //}
 
     }
 }

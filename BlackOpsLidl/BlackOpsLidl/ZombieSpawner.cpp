@@ -30,7 +30,7 @@ void ZombieSpawner::SpawnZombie()
 	}
 
 	Vector2f _sizeZombie = Vector2f(80, 80);
-	ShapeData _dataZombie = ShapeData(Vector2f(0.0f + 100 * currentWaveCount, 0.0f), _sizeZombie, PATH_ZOMBIE);
+	ShapeData _dataZombie = ShapeData(spawnPosition, _sizeZombie, PATH_ZOMBIE);
 
 	Zombie* _zombie = new Zombie(_dataZombie);
 	_zombie->Init();
