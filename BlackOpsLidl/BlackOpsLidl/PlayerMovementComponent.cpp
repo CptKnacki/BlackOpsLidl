@@ -19,18 +19,6 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : MovementCompon
 	isOnGround = false;
 	checkGroundDistance = owner->GetShapeSize().y * 0.3f;
 
-	// Jump
-	isJumping = false;
-	canDoubleJump = true;
-	jumpForce = 1.2f;
-	currentJumpForce = jumpForce;
-	jumpFactor = 2.5f;
-
-	// Gravity
-	gravity = 0.41f;
-	downSpeed = gravity;
-	downFactor = 8.0f;
-
 	// Dash
 	canDash = true;
 	isDashing = false;
@@ -58,33 +46,18 @@ bool PlayerMovementComponent::CheckGround()
 	return Raycast(owner->GetShapePosition(), Vector2f(0.0f, 1.0f), checkGroundDistance, _info, { owner });
 }
 
-void PlayerMovementComponent::StopJump()
-{
-	isJumping = false;
-	currentJumpForce = jumpForce;
-	downSpeed = gravity;
-}
 
 
 void PlayerMovementComponent::Update(const float _deltaTime)
 {
 	if (!canMove) return;
 
-	if (isOnGround = CheckGround())
-	{
-		downSpeed = gravity;
-		canDoubleJump = true;
-		SetDirectionX(direction.x, "Right");
-	}
-
 	Game::GetCamera()->SetUpdate(!isOnGround);
 
 	Vector2f _offset;
 
-	// Si je suis en train de dash
 	if (isDashing)
 	{
-		// Application de l'esquive
 		_offset = Vector2f(dashDirection * dashSpeed * _deltaTime, 0.0f);
 	}
 
@@ -103,31 +76,6 @@ void PlayerMovementComponent::Update(const float _deltaTime)
 		// Déplacement par défaut
 		_offset = direction * speed * _deltaTime;
 
-		// Si je suis en l'air et que je ne saute pas
-		if (!isOnGround && !isJumping)
-		{
-			downSpeed += downFactor / 1000.0f * _deltaTime;
-			downSpeed = downSpeed > 2.0f ? 2.0f : downSpeed;
-
-			// Application de la gravité
-			_offset = direction + Vector2f(0.0f, 1.0f * downSpeed);
-			Normalize(_offset);
-			_offset *= _deltaTime;
-		}
-
-		// Si je suis en train de jump
-		else if (isJumping)
-		{
-			currentJumpForce -= jumpFactor / 1000.0f * _deltaTime;
-			if (currentJumpForce <= 0.5f)
-			{
-				StopJump();
-			}
-
-			_offset = direction + Vector2f(0.0f, -1.0f * currentJumpForce * 2.0f);
-			Normalize(_offset);
-			_offset *= _deltaTime;
-		}
 	}
 
 	const Vector2f& _collisionOffset = Vector2f(0.0f, -5.0f);
@@ -140,67 +88,16 @@ void PlayerMovementComponent::Update(const float _deltaTime)
 	}
 }
 
-void PlayerMovementComponent::Jump()
-{
-	if (!canMove || !canDoubleJump) return;
-
-	if (!isOnGround && canDoubleJump)
-	{
-		canDoubleJump = false;
-		currentJumpForce = jumpForce;
-		FxManager::GetInstance().Run("FxDoubleJump");
-	}
-
-	isJumping = true;
-	animation->GetCurrentAnimation()->RunAnimation("Jump", dashDirection);
-}
-
 void PlayerMovementComponent::Dash()
 {
 	if (!canMove || !canDash || isDashing) return;
 
-	isJumping = false;
 	canDash = false;
 	isDashing = true;
 	new Timer([this]() { isDashing = false; }, seconds(dashDuration));
 	animation->GetCurrentAnimation()->RunAnimation("Dash", dashDirection);
 	FxManager::GetInstance().Run("FxDash");
 }
-
-void PlayerMovementComponent::SitDown()
-{
-	if (!canMove || !isStanding || !owner->GetBounds().contains(Game::GetMap()->GetBench()->GetShapePosition()))
-	{
-		cout << "Impossible de s'assoir !" << endl;
-		return;
-	}
-
-	const Vector2f& _position = owner->GetShapePosition();
-	owner->GetDrawable()->setPosition(_position.x, _position.y - sitOffset);
-	isStanding = false;
-	canMove = false;
-
-	animation->GetCurrentAnimation()->RunAnimation("Sit", dashDirection);
-}
-
-void PlayerMovementComponent::StandUp()
-{
-	if (!canMove) return;
-
-	if (isStanding)
-	{
-		cout << "Impossible de se lever !" << endl;
-		return;
-	}
-
-	const Vector2f& _position = owner->GetShapePosition();
-	owner->GetDrawable()->setPosition(_position.x, _position.y + sitOffset);
-	isStanding = true;
-	canMove = true;
-
-	animation->GetCurrentAnimation()->RunAnimation("StopRight", dashDirection);
-}
-
 
 void PlayerMovementComponent::SetDirectionX(const float _directionX, const string& _animName)
 {

@@ -25,7 +25,7 @@ GridNavigation* Game::grid;
 
 Game::Game()
 {
-	//menu = new MainMenu();
+	menu = new MainMenu();
 	player = new Player("Player", ShapeData(Vector2f(0, 0), Vector2f(75.0f, 75.0f), PATH_PLAYER));
 	//map = new Map();
 	camera = new Camera();
@@ -38,6 +38,10 @@ Game::~Game()
 {
 	delete map;
 	delete brightness;
+	for (Bullet* _bullet : bullets)
+	{
+		delete _bullet;
+	}
 }
 
 
@@ -51,10 +55,10 @@ void Game::Start()
 
 void Game::Init()
 {
-	//menu->Init();
+	menu->Init();
 	//map->Init();
-	//camera->Init();
-	//brightness->Init();
+	camera->Init();
+	brightness->Init();
 
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);
@@ -107,6 +111,7 @@ void Game::UpdateWindow()
 	//DrawMap();
 	DrawActors();
 	//window.draw(*player->GetLight());
+	DrawUIs();
 
 	grid->ShowNodes();
 	ZombieWaveManager::GetInstance().DrawZombiesPath();
@@ -131,13 +136,13 @@ void Game::DrawWorldUIs()
 	}
 }
 
-void Game::DrawMap()
-{
-	for (ShapeObject* _drawable : map->GetAllDrawables())
-	{
-		window.draw(*_drawable->GetDrawable(), brightness->shader);
-	}
-}
+//void Game::DrawMap()
+//{
+//	for (ShapeObject* _drawable : map->GetAllDrawables())
+//	{
+//		window.draw(*_drawable->GetDrawable(), brightness->shader);
+//	}
+//}
 
 void Game::DrawActors()
 {

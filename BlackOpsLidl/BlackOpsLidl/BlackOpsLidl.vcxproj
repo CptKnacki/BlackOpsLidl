@@ -54,6 +54,7 @@
     <ClCompile Include="BossPatrolState.cpp" />
     <ClCompile Include="Brain.cpp" />
     <ClCompile Include="BrightnessMenu.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Canvas.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="BossPatrolState.h" />
     <ClInclude Include="Brain.h" />
     <ClInclude Include="BrightnessMenu.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas.h" />

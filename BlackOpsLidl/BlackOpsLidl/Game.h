@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Camera.h"
 #include "GridNavigation.h"
+#include "Bullet.h"
 
 using namespace std;
 using namespace sf;
@@ -63,6 +64,9 @@ private:
 	static Brightness* brightness;
 
 	static GridNavigation* grid;
+
+	vector<Bullet*> bullets;
+
 
 public:
 	static RenderWindow& GetWindow()
