@@ -27,8 +27,8 @@ void GridNavigation::Generate()
         {
             Vector2f _pos = Vector2f(x * gap, y * gap) + position;
 
-            Node* _n = new Node(data, _pos);
-            _n->CheckForObstacle(); // TODO FINIR LE CHECK
+            Node* _n = new Node(data, _pos, gap);
+            _n->CheckForObstacle();
             data->nodes.push_back(_n);
         }
     }

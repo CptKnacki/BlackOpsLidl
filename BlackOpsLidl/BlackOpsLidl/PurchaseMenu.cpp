@@ -72,14 +72,6 @@ void PurchaseMenu::Init()
 			if (canBuy)
 			{
 				SetStatus(false);
-				Player* _player = Game::GetPlayer();
-				_player->GetStats()->UpdateGeos(-item.price);
-				_player->GetInventory()->AddItem(1, {
-					item.path,
-					item.title,
-					item.text,
-					IT_ITEM
-				});
 			}
 		}),
 		ButtonData("No", [&]() {
@@ -137,8 +129,6 @@ void PurchaseMenu::SetItem(const SellItem& _item)
 	TextureManager::GetInstance().Load(icon->GetObject(), _item.path);
 	price->SetString(to_string(_item.price));
 
-	const int _geosCount = Game::GetPlayer()->GetStats()->GetGeos();
-	canBuy = item.price <= _geosCount;
 
 	buyLabel->GetDrawable()->setFillColor(canBuy ? Color::White : Color(96, 96, 96));
 	warnMessage->SetVisible(!canBuy);

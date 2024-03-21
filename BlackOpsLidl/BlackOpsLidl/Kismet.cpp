@@ -85,3 +85,29 @@ bool BoxCast(const FloatRect& _boxRect, HitInfo& _hitInfo, const vector<Actor*>&
 
 	return false;
 }
+
+bool BoxCastAll(const FloatRect& _boxRect, vector<HitInfo>& _hitsInfo, const vector<Actor*>& _ignoredActors)
+{
+	_hitsInfo.clear();
+
+	for (Actor* _actor : ActorManager::GetInstance().GetAllValues())
+	{
+		if (Contains(_actor, _ignoredActors)) continue;
+
+		if (!_actor->GetDrawable())
+			return false;
+
+		if (_boxRect.intersects(_actor->GetDrawable()->getGlobalBounds()))
+		{
+			HitInfo _info = HitInfo();
+
+			_info.position = _actor->GetShapePosition();
+			_info.distance = Distance(_info.position, _boxRect.getPosition());
+			_info.actor = _actor;
+
+			_hitsInfo.push_back(_info);
+		}
+	}
+
+	return false;
+}

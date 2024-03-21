@@ -21,7 +21,12 @@ GridNavigation* Game::grid;
 
 #define PATH_ZOMBIE "Animations/Zombie.png"
 #define PATH_TEST_ZOMBIE "Animations/TEST_Zombie.png"
+
+#define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
+#define PATH_VERTICAL_FENCE "VerticalFence.png"
+
 #include "Zombie.h"
+#include "GPE_Fence.h"
 
 Game::Game()
 {
@@ -56,10 +61,19 @@ void Game::Init()
 	camera->Init();
 	brightness->Init();
 
+	Vector2f _fenceSize = Vector2f(100, 50);
+	ShapeData _dataFence = ShapeData(Vector2f(250.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
+	ShapeData _dataFence2 = ShapeData(Vector2f(350.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
+
+	GPE_Fence* _fenceTest = new GPE_Fence(_dataFence, 570);
+	GPE_Fence* _fenceTest2 = new GPE_Fence(_dataFence2, 570);
+	//_fenceTest2->GetShape()->setScale(sf::Vector2f(0, 0));
+
+
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);
 	
-
+	
 
 	/*TriggerBox* _box = new TriggerBox(ShapeData(Vector2f(100.0f, 0.0f), Vector2f(200.0f, 200.0f), ""), [&]() {
 		cout << "coucou" << endl;
@@ -84,6 +98,7 @@ void Game::Init()
 
 void Game::Update()
 {
+
 	while (window.isOpen())
 	{
 		TimerManager::GetInstance().Update();

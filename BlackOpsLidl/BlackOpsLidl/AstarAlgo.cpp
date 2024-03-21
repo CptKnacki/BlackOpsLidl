@@ -42,7 +42,7 @@ void AstarAlgo::ComputePath(Node* _start, Node* _end)
             float _hCost = Distance(_current->position, _end->position);
             float _gCost = _current->G + _hCost;
 
-            if (_next->hasBeenVisited)
+            if (_next->hasBeenVisited || !_next->isOpen)
                 continue;
 
             if (_gCost < _next->G || !Contains<Node>(_next, _openList))
