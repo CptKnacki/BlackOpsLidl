@@ -24,9 +24,10 @@ PlayerStat::PlayerStat(Player* _player) : Menu("PlayerStat", nullptr)
 
 	maxStamina = 100;
 	currentStamina = maxStamina;
-
+	staminaRegen = 5;
+	
 	moneyCount = 750;
-
+	
 	headShotPercentage = 15;
 
 	animation = _player->GetComponent<PlayerAnimationComponent>();

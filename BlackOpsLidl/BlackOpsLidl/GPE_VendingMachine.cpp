@@ -2,6 +2,7 @@
 #include "Macro.h"
 #include "PlayerStat.h"
 #include "Game.h"
+#include "PlayerInventoryComponent.h"
 
 GPE_VendingMachine::GPE_VendingMachine(const ShapeData& _data, int _vendingPrice) : Actor(STRING_ID("VendingMachine"), _data)
 {
@@ -11,6 +12,9 @@ GPE_VendingMachine::GPE_VendingMachine(const ShapeData& _data, int _vendingPrice
 
 void GPE_VendingMachine::CheckCanAffordDrink()
 {
+	if (!isAvailable)
+		return;
+
 	PlayerStat* _playerStats = Game::GetPlayer()->GetStats();
 	int _playerMoney = _playerStats->GetMoney();
 
@@ -19,9 +23,16 @@ void GPE_VendingMachine::CheckCanAffordDrink()
 		_playerStats->UpdateMoney(-vendingPrice);
 		GiveDrink();
 	}
-
 }
 
 void GPE_VendingMachine::GiveDrink()
 {
+	isAvailable = false;
+
+	PlayerInventoryComponent* _inventory = Game::GetPlayer()->GetComponent<PlayerInventoryComponent>();
+
+	if (!_inventory)
+		return;
+
+	_inventory->AddBonusDrink(currentVendingDrink);
 }

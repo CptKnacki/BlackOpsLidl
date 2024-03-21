@@ -16,6 +16,7 @@ class PlayerStat : public Menu
 
 	int currentStamina;
 	int maxStamina;
+	int staminaRegen;
 
 	int moneyCount;
 
@@ -26,6 +27,12 @@ class PlayerStat : public Menu
 	PlayerMovementComponent* movement;
 
 	int numberOfDeath;
+	float bonusMoveSpeed = 0;
+	float reloadTimeReduction = 0;
+	int bonusExplosionResistance = 0;
+
+	bool hasDoubleShots = false;
+
 
 public:
 	void SetCurrentLife(const int _newLife)
@@ -36,14 +43,69 @@ public:
 	{
 		return currentLife;
 	}
+	
+	void SetMaxLife(const int _maxLife)
+	{
+		maxLife = _maxLife;
+	}
 	int GetMaxLife() const
 	{
 		return maxLife;
 	}
+	
 	int GetMoney() const
 	{
 		return moneyCount;
 	}
+	
+	int GetStaminaRegen() const
+	{
+		return staminaRegen;
+	}
+	void SetStaminaRegen(const int _regen)
+	{
+		staminaRegen = _regen;
+	}
+	
+	void SetBonusMoveSpeed(const float _moveSpeed)
+	{
+		bonusMoveSpeed = _moveSpeed;
+	}
+	float GetBonusMoveSpeed() const
+	{
+		return bonusMoveSpeed;
+	}
+	
+	void SetBonusExplosionResistance(const int _resistance)
+	{
+		bonusExplosionResistance = _resistance;
+	}
+	int GetBonusExplosionResistance() const
+	{
+		return bonusExplosionResistance;
+	}
+	
+	int GetHeadShotPercentage() const
+	{
+		return headShotPercentage;
+	}
+	void SetHeadShotPercentage(const int _percentage)
+	{
+		headShotPercentage = _percentage;
+	}
+	
+	bool GetHasDoubleShot() const { return hasDoubleShots; }
+	void SetHasDoubleShot(const bool _hasDoubleShot) { hasDoubleShots = _hasDoubleShot; }
+
+	void SetReloadTimeReduction(const float _reloadReduction)
+	{
+		reloadTimeReduction = _reloadReduction;
+	}
+	float GetReloadTimeReduction() const
+	{
+		return reloadTimeReduction;
+	}
+
 private:
 	string ComputeLifePath(const bool _toAdd) const
 	{
