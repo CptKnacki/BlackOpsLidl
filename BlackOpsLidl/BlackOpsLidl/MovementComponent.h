@@ -15,7 +15,6 @@ class MovementComponent : public Component
 protected:
 	bool canMove;
 	float speed;
-	float gravity;
 	Vector2f lastDirection;
 
 	AnimationComponent* animation;

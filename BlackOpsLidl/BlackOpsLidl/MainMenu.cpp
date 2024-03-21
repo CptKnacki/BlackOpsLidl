@@ -3,7 +3,7 @@
 #include "ActionMap.h"
 #include "MusicManager.h"
 
-#define PATH_MAIN_MENU "UIs/Menus/MainMenu/Background.png"
+#define PATH_MAIN_MENU "UIs/Menus/MainMenu/Background.jpg"
 
 MainMenu::MainMenu() : Menu("MainMenu")
 {

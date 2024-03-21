@@ -30,9 +30,9 @@ GridNavigation* Game::grid;
 
 Game::Game()
 {
-	//menu = new MainMenu();
+	menu = new MainMenu();
 	player = new Player("Player", ShapeData(Vector2f(0, 0), Vector2f(75.0f, 75.0f), PATH_PLAYER));
-	//map = new Map();
+	map = new Map();
 	camera = new Camera();
 	brightness = new Brightness();
 
@@ -56,10 +56,10 @@ void Game::Start()
 
 void Game::Init()
 {
-	//menu->Init();
-	//map->Init();
-	//camera->Init();
-	//brightness->Init();
+	menu->Init();
+	map->Init();
+	camera->Init();
+	brightness->Init();
 
 	Vector2f _fenceSize = Vector2f(100, 50);
 	ShapeData _dataFence = ShapeData(Vector2f(250.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
@@ -119,9 +119,10 @@ void Game::UpdateWindow()
 	window.setView(camera->GetView());
 	//DrawWorldUIs();
 
-	//DrawMap();
+	DrawMap();
 	DrawActors();
 	//window.draw(*player->GetLight());
+	DrawUIs();
 
 	grid->ShowNodes();
 	ZombieWaveManager::GetInstance().DrawZombiesPath();

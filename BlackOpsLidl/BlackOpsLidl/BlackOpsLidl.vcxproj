@@ -55,6 +55,7 @@
     <ClCompile Include="BossPatrolState.cpp" />
     <ClCompile Include="Brain.cpp" />
     <ClCompile Include="BrightnessMenu.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Canvas.cpp" />
@@ -174,6 +175,7 @@
     <ClCompile Include="Transition.cpp" />
     <ClCompile Include="TriggerBox.cpp" />
     <ClCompile Include="VideoMenu.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Widget.cpp" />
     <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="ZombieAttackState.cpp" />
@@ -207,6 +209,7 @@
     <ClInclude Include="BossPatrolState.h" />
     <ClInclude Include="Brain.h" />
     <ClInclude Include="BrightnessMenu.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas.h" />
@@ -329,6 +332,7 @@
     <ClInclude Include="Transition.h" />
     <ClInclude Include="TriggerBox.h" />
     <ClInclude Include="VideoMenu.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="Widget.h" />
     <ClInclude Include="Zombie.h" />
     <ClInclude Include="ZombieAttackState.h" />

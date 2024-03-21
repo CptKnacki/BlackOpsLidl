@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Camera.h"
 #include "GridNavigation.h"
+#include "Bullet.h"
 
 using namespace std;
 using namespace sf;
@@ -57,6 +58,7 @@ class Game
 	static RenderWindow window;
 	MainMenu* menu;
 	static Map* map;
+
 private:
 	static Player* player;
 	static Camera* camera;

@@ -430,8 +430,13 @@
     <ClCompile Include="ZombieWaveManager.cpp">
       <Filter>Zombie</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files</Filter>
     <ClCompile Include="GPE_Fence.cpp">
-      <Filter>GPE</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -840,8 +845,13 @@
     <ClInclude Include="ZombieWaveManager.h">
       <Filter>Zombie</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files</Filter>
     <ClInclude Include="GPE_Fence.h">
-      <Filter>GPE</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

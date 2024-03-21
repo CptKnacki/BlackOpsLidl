@@ -94,20 +94,6 @@ void MobMovementComponent::Update(const float _deltaTime)
 		return;
 	}
 
-	if (!(isOnGround = CheckGround()) && !isJumping && !isFlying)
-	{
-		// Application de la gravité
-		_offset = _direction + Vector2f(0.0f, 1.0f);
-		Normalize(_offset);
-		_offset *= gravity * _deltaTime;
-	}
-	else if (isJumping)
-	{
-		// Application du saut
-		_offset = _direction + Vector2f(0.0f, -1.0f);
-		Normalize(_offset);
-		_offset *= jumpForce * _deltaTime;
-	}
 	owner->GetDrawable()->move(_offset);
 }
 

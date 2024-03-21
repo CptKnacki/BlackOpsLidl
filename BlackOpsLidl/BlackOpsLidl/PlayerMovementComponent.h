@@ -13,18 +13,6 @@ class PlayerMovementComponent : public MovementComponent
 	bool isOnGround;
 	float checkGroundDistance;
 
-	// Jump
-	bool isJumping;
-	bool canDoubleJump;
-	float jumpForce;
-	float currentJumpForce;
-	float jumpFactor;
-
-	// Gravity
-	float gravity;
-	float downSpeed;
-	float downFactor;
-
 	// Dash
 	bool canDash;
 	bool isDashing;
@@ -59,10 +47,6 @@ public:
 	{
 		return isDashing;
 	}
-	bool IsStanding() const
-	{
-		return isStanding;
-	}
 	Vector2f GetDirection() const
 	{
 		return direction;
@@ -77,13 +61,9 @@ public:
 
 private:
 	bool CheckGround();
-	void StopJump();
 	void PlaySound(const string& _sound, const bool _isLoop);
 	void Stop();
 public:
 	virtual void Update(const float _deltaTime) override;
-	void Jump();
 	void Dash();
-	void SitDown();
-	void StandUp();
 };
