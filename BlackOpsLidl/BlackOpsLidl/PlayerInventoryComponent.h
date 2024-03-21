@@ -8,6 +8,8 @@ class PlayerInventoryComponent : public Component
 	
 	vector<GPE_BonusDrink*> drinks;
 
+	vector<Actor*> 
+
 public:
 	PlayerInventoryComponent(Actor* _owner);
 

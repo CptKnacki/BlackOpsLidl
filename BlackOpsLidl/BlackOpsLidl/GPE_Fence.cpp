@@ -26,12 +26,14 @@ void GPE_Fence::TryToOpen()
 void GPE_Fence::OpenDoor()
 {
 	isOpen = true;
-	// TODO Faire disparaître
+	GetShape()->setScale(sf::Vector2f(0, 0));
+	// TODO Mettre à jour la grid
 }
 
 void GPE_Fence::CloseDoor()
 {
 	isOpen = false;
-	// TODO Faire réapparaître
+	GetShape()->setScale(sf::Vector2f(1, 1));
+	// TODO Mettre à jour la grid
 
 }
