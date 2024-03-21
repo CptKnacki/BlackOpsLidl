@@ -1,21 +1,22 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Actor.h"
+
 
 using namespace std;
 using namespace sf;
 
-class Bullet
+class Bullet 
 {
-	Sprite shapeBullet;
-
+	Sprite *shapeBullet;
 	Vector2f direction;
 	float movementSpeed;
 
 
 public:
-	Bullet();
-	Bullet(const Texture* _texture, const float _posX, const float _posY, float _x, const float _y, const float _movementSpeed);
+	Bullet(Vector2f _positionSpawn, Vector2f _directionToShoot, const float _movementSpeed);
+
 	~Bullet();
 
 public:

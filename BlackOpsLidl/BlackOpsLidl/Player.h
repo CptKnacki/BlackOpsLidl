@@ -10,6 +10,7 @@
 #include "InteractionComponent.h"
 #include "CollisionComponent.h"
 #include "PlayerSoundData.h"
+#include "Weapon.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ class Player : public Actor
 	CircleShape* light;
 	SoundData* sound;
 	PlayerSoundData data;
+
 
 public:
 	void SetStatus(const bool _status)
@@ -47,6 +49,10 @@ public:
 	PlayerMovementComponent* GetPlayerMovement()const
 	{
 		return movement;
+	}
+	Vector2f GetPosition() const
+	{
+		return GetShapePosition();
 	}
 
 public:

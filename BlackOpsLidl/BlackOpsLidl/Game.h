@@ -58,15 +58,13 @@ class Game
 	static RenderWindow window;
 	MainMenu* menu;
 	static Map* map;
+
 private:
 	static Player* player;
 	static Camera* camera;
 	static Brightness* brightness;
 
 	static GridNavigation* grid;
-
-	vector<Bullet*> bullets;
-
 
 public:
 	static RenderWindow& GetWindow()

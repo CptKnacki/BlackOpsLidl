@@ -27,7 +27,7 @@ Game::Game()
 {
 	menu = new MainMenu();
 	player = new Player("Player", ShapeData(Vector2f(0, 0), Vector2f(75.0f, 75.0f), PATH_PLAYER));
-	//map = new Map();
+	map = new Map();
 	camera = new Camera();
 	brightness = new Brightness();
 
@@ -38,10 +38,6 @@ Game::~Game()
 {
 	delete map;
 	delete brightness;
-	for (Bullet* _bullet : bullets)
-	{
-		delete _bullet;
-	}
 }
 
 
@@ -56,7 +52,7 @@ void Game::Start()
 void Game::Init()
 {
 	menu->Init();
-	//map->Init();
+	map->Init();
 	camera->Init();
 	brightness->Init();
 
@@ -108,7 +104,7 @@ void Game::UpdateWindow()
 	window.setView(camera->GetView());
 	//DrawWorldUIs();
 
-	//DrawMap();
+	DrawMap();
 	DrawActors();
 	//window.draw(*player->GetLight());
 	DrawUIs();
@@ -136,13 +132,13 @@ void Game::DrawWorldUIs()
 	}
 }
 
-//void Game::DrawMap()
-//{
-//	for (ShapeObject* _drawable : map->GetAllDrawables())
-//	{
-//		window.draw(*_drawable->GetDrawable(), brightness->shader);
-//	}
-//}
+void Game::DrawMap()
+{
+	for (ShapeObject* _drawable : map->GetAllDrawables())
+	{
+		window.draw(*_drawable->GetDrawable(), brightness->shader);
+	}
+}
 
 void Game::DrawActors()
 {

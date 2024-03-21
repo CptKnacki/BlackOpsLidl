@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "HUD.h"
-#include"Macro.h"
+#include "Macro.h"
 
 #define PATH_INVENTORY "UIs/Inventory/Inventory.png"
 #define PATH_CELL "UIs/Inventory/Cell.png"

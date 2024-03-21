@@ -1,26 +1,18 @@
 #include "Map.h"
 #include "Actor.h"
 #include "CollectableActor.h"
-#include "Lift.h"
 #include "Macro.h"
 #include "FileLoader.h"
 #include "TextureManager.h"
 #include "Game.h"
 #include "Item.h"
-#include "Enemy.h"
-#include "Boss.h"
-#include "Mob.h"
 #include "InteractableActor.h"
-#include "FalseKnight.h"
 #include "Game.h"
 
 
-#define PATH_BENCH "Map/Bench.png"
 #define PATH_STAND "/UIs/Shop/Stand.png"
 #define PATH_PNJ "/Characters/PNJ/PNJA.png"
 #define PATH_MERCHAND "/Characters/PNJ/Merchand.png"
-#define PATH_DRAGON "Animations/dragon.png"
-#define PATH_GRUB "/Animations/Grub.png"
 
 Map::Map()
 {
@@ -28,7 +20,7 @@ Map::Map()
 	//grub = new Grub(ShapeData(Vector2f(950.0f, 0.0f), Vector2f(75.0f, 100.0f), PATH_GRUB));
 	//dragon = new Dragon(ShapeData(Vector2f(700.0f, 0.0f), Vector2f(100.0f, 100.0f), PATH_DRAGON));
 	//bench = new Bench(ShapeData(Vector2f(300.0f, 5.0f), Vector2f(176.0, 80.0f), PATH_BENCH));
-	//merchand = new Merchand(ShapeData(Vector2f(500.0f, 0.0f), Vector2f(100.0f, 100.0f), PATH_MERCHAND));
+	merchand = new Merchand(ShapeData(Vector2f(500.0f, 0.0f), Vector2f(100.0f, 100.0f), PATH_MERCHAND));
 	currentLevel = 1;
 }
 
@@ -66,7 +58,7 @@ MapData Map::LoadMapData(const string& _path)
 	const float _clampCamMaxY = stof(GetStringAfterSymbol(GetLineByText("ClampCamMaxY", _path), _symbol));
 	_data.clampCamMax = Vector2f(_bgPosX, _bgPosY);
 
-	
+
 
 #pragma endregion
 
@@ -168,129 +160,75 @@ MapData Map::LoadMapData(const string& _path)
 
 #pragma endregion
 
-#pragma region Enemies 
 
-	const string& _enemySymbol = "enemies = [";
-	const int _enemyIndex = GetIndexByText(_enemySymbol, _path);
-	_index = _enemyIndex + 2;
-	bool _isEndOfEnemy;
-	int _enemyIndexType = 0; // Initialize with a default value
-	do
-	{
-		// Recupérer les informations du ground, augmenter l'index a chaque fois
-		const EnemyType& _enemyType = static_cast<EnemyType>(stoi(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol)));
-		_index++;
-		if (_enemyType == BOSS)
-		{
-			const BossType& _enemyIndexType = static_cast<BossType>(stoi(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol)));
-		}
-		else if (_enemyType == MOB)
-		{
-			const MobType& _enemyIndexType = static_cast<MobType>(stoi(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol)));
-		}
-		_index++;
-		const float _enemyPositionX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _enemyPositionY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _enemySizeX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _enemySizeY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const string& _enemyPath = GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol);
-		_index++;
-
-		// Créer avec les infos
-		if (_enemyIndexType == (int)BOSS)
-		{
-			FalseKnight* _falseKnight = new FalseKnight(ShapeData(Vector2f(_enemyPositionX, _enemyPositionY), Vector2f(_enemySizeX, _enemySizeY)));
-			_falseKnight->Init();
-			_falseKnight->GetDrawable()->setFillColor(Color::Transparent);
-			// new Boss(ShapeData(Vector2f(_enemyPositionX, _enemyPositionY), Vector2f(_enemySizeX, _enemySizeY)));
-		}
-		else if (_enemyIndexType == (int)MOB)
-		{
-			new Mob(ShapeData(Vector2f(_enemyPositionX, _enemyPositionY), Vector2f(_enemySizeX, _enemySizeY), _enemyPath));
-		}
-		else
-		{
-			cout << "EPIC FAIL" << endl;
-		}
-
-		_index += 2;
-		_isEndOfEnemy = ContainsText("]", GetLineByIndex(_index - 1, _path));
-	} while (!_isEndOfEnemy);
-
-#pragma endregion
-
-#pragma region NPCS
-	const string& _npcSymbol = "npcs = [";
-	const int _npcIndex = GetIndexByText(_npcSymbol, _path);
-	_index = _npcIndex + 2;
-	bool _isEndOfNPC;
-
-	do
-	{
-		// Recupérer les informations de npc, augmenter l'index a chaque fois
-		const NPCType& _npcType = static_cast<NPCType>(stoi(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol)));
-		_index++;
-		const float _npcPositionX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _npcPositionY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _npcSizeX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _npcSizeY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const string& _npcText = GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol);
-		_index++;
-
-		if (_npcType == MERCHAND)
-		{
-			new Merchand(ShapeData(Vector2f(_npcPositionX, _npcPositionY), Vector2f(_npcSizeX, _npcSizeY)));
-		}
-		else if (_npcType == NPC)
-		{
-			new PNJ(ShapeData(Vector2f(_npcPositionX, _npcPositionY), Vector2f(_npcSizeX, _npcSizeY)));
-		}
-
-		_index += 2;
-		_isEndOfNPC = ContainsText("]", GetLineByIndex(_index - 1, _path));
-	} while (!_isEndOfNPC);
-#pragma endregion
-
-#pragma region Environment
-
-	const string& _environmentSymbol = "Environment = [";
-	const int _environmentIndex = GetIndexByText(_environmentSymbol, _path);
-	_index = _environmentIndex + 2;
-	bool _isEndOfEnvironment;
-
-	do
-	{
-		const float _environmentPositionX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _environmentPositionY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _environmentSizeX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const float _environmentSizeY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
-		_index++;
-		const string& _environmentPath = GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol);
-		_index++;
-
-		ShapeObject(ShapeData(Vector2f(_environmentPositionX, _environmentPositionY),
-			Vector2f(_environmentSizeX, _environmentSizeY), _environmentPath));
-
-
-		_index += 2;
-		_isEndOfEnvironment = ContainsText("]", GetLineByIndex(_index - 1, _path));
-	} while (!_isEndOfEnvironment);
-
-#pragma endregion
-
-
-	InitPlatforms();
+//#pragma region NPCS
+//	const string& _npcSymbol = "npcs = [";
+//	const int _npcIndex = GetIndexByText(_npcSymbol, _path);
+//	_index = _npcIndex + 2;
+//	bool _isEndOfNPC;
+//
+//	do
+//	{
+//		// Recupérer les informations de npc, augmenter l'index a chaque fois
+//		const NPCType& _npcType = static_cast<NPCType>(stoi(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol)));
+//		_index++;
+//		const float _npcPositionX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const float _npcPositionY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const float _npcSizeX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const float _npcSizeY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const string& _npcText = GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol);
+//		_index++;
+//
+//		if (_npcType == MERCHAND)
+//		{
+//			new Merchand(ShapeData(Vector2f(_npcPositionX, _npcPositionY), Vector2f(_npcSizeX, _npcSizeY)));
+//		}
+//		else if (_npcType == NPC)
+//		{
+//			new PNJ(ShapeData(Vector2f(_npcPositionX, _npcPositionY), Vector2f(_npcSizeX, _npcSizeY)));
+//		}
+//
+//		_index += 2;
+//		_isEndOfNPC = ContainsText("]", GetLineByIndex(_index - 1, _path));
+//	} while (!_isEndOfNPC);
+//#pragma endregion
+//
+//#pragma region Environment
+//
+//	const string& _environmentSymbol = "Environment = [";
+//	const int _environmentIndex = GetIndexByText(_environmentSymbol, _path);
+//	_index = _environmentIndex + 2;
+//	bool _isEndOfEnvironment;
+//
+//	do
+//	{
+//		const float _environmentPositionX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const float _environmentPositionY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const float _environmentSizeX = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const float _environmentSizeY = stof(GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol));
+//		_index++;
+//		const string& _environmentPath = GetStringAfterSymbol(GetLineByIndex(_index, _path), _symbol);
+//		_index++;
+//
+//		ShapeObject(ShapeData(Vector2f(_environmentPositionX, _environmentPositionY),
+//			Vector2f(_environmentSizeX, _environmentSizeY), _environmentPath));
+//
+//
+//		_index += 2;
+//		_isEndOfEnvironment = ContainsText("]", GetLineByIndex(_index - 1, _path));
+//	} while (!_isEndOfEnvironment);
+//
+//#pragma endregion
+//
+//
+//	InitPlatforms();
 	return _data;
 }
 
@@ -306,21 +244,19 @@ void Map::InitPlatforms()
 	}
 }
 
-
-
-void Map::Init() 
+void Map::Init()
 {
-	//MapData _mapdata = LoadMapData(GetLevelFromIndex(currentLevel));
+	MapData _mapdata = LoadMapData(GetLevelFromIndex(currentLevel));
 	//bench->Init();
-	//merchand->	Init();
+	//merchand->Init();
 	//pnj->Init();
 
 
 
 	// BACKGROUND LOAD
-	//ShapeObject* _background = new ShapeObject(ShapeData(_mapdata.backgroundPos + Vector2f(0, -_mapdata.backgroundSize.y + 220), _mapdata.backgroundSize, _mapdata.backgroundPath));
-	//_background->GetDrawable()->setOrigin(0.0f, 0.0f);
-	//drawables.push_back(_background);
+	ShapeObject* _background = new ShapeObject(ShapeData(_mapdata.backgroundPos + Vector2f(0, -_mapdata.backgroundSize.y + 220), _mapdata.backgroundSize, _mapdata.backgroundPath));
+	_background->GetDrawable()->setOrigin(0.0f, 0.0f);
+	drawables.push_back(_background);
 
 	////TODO move
 	//ShapeObject* _barrack = new ShapeObject(ShapeData(Vector2f(1915.0f, -SCREEN_HEIGHT - 100.0f + 20.0f), Vector2f(3613.0f, 908.0f), "Levels/Environment.png"));

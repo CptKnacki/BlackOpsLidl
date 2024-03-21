@@ -136,6 +136,13 @@ void Player::SetupPlayerInput()
 			ActionData("StopSprint", [&]() { movement->SetSpeed(0.2f); }, InputData({ActionType::KeyReleased, Keyboard::LControl})),
 		});
 
+	new ActionMap("Attack", {
+		ActionData("RightClick", [&]() {
+			Weapon* weapon = new Weapon(GetShapePosition());
+			weapon->Shoot();
+		}, InputData({ActionType::MouseButtonPressed, Mouse::Right}))
+		});
+
 	new ActionMap("Menu", {
 		ActionData("Pause", [&]() {
 			TryToOpen(pauseMenu);

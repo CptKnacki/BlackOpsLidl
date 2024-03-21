@@ -157,6 +157,7 @@
     <ClCompile Include="Transition.cpp" />
     <ClCompile Include="TriggerBox.cpp" />
     <ClCompile Include="VideoMenu.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Widget.cpp" />
     <ClCompile Include="Zombie.cpp" />
     <ClCompile Include="ZombieAttackState.cpp" />
@@ -295,6 +296,7 @@
     <ClInclude Include="Transition.h" />
     <ClInclude Include="TriggerBox.h" />
     <ClInclude Include="VideoMenu.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="Widget.h" />
     <ClInclude Include="Zombie.h" />
     <ClInclude Include="ZombieAttackState.h" />
