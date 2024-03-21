@@ -61,7 +61,7 @@ void Game::Init()
 	//camera->Init();
 	//brightness->Init();
 
-	Vector2f _fenceSize = Vector2f(120, 50);
+	Vector2f _fenceSize = Vector2f(100, 50);
 	ShapeData _dataFence = ShapeData(Vector2f(250.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 	ShapeData _dataFence2 = ShapeData(Vector2f(350.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 
@@ -73,7 +73,7 @@ void Game::Init()
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);
 	
-
+	
 
 	/*TriggerBox* _box = new TriggerBox(ShapeData(Vector2f(100.0f, 0.0f), Vector2f(200.0f, 200.0f), ""), [&]() {
 		cout << "coucou" << endl;
@@ -98,6 +98,7 @@ void Game::Init()
 
 void Game::Update()
 {
+
 	while (window.isOpen())
 	{
 		TimerManager::GetInstance().Update();

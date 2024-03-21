@@ -27,6 +27,8 @@ void GPE_Fence::OpenDoor()
 {
 	isOpen = true;
 	GetShape()->setScale(sf::Vector2f(0, 0));
+	//SetToRemove(true);
+	// 
 	// TODO Mettre à jour la grid
 }
 
