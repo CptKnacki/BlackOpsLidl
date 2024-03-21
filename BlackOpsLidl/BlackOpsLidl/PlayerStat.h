@@ -13,6 +13,7 @@ class PlayerStat : public Menu
 {
 	int currentLife;
 	int maxLife;
+	int lifeRegen;
 
 	int currentStamina;
 	int maxStamina;
@@ -33,6 +34,7 @@ class PlayerStat : public Menu
 
 	bool hasDoubleShots = false;
 
+	Timer* regenTimer;
 
 public:
 	void SetCurrentLife(const int _newLife)
@@ -121,4 +123,5 @@ public:
 	void UpdateLife(const int _count);
 	void UpdateMoney(const int _factor);
 	void Death();
+	void RegenLifeAndStamina();
 };

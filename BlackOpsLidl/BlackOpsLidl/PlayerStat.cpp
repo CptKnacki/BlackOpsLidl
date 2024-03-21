@@ -21,6 +21,7 @@ PlayerStat::PlayerStat(Player* _player) : Menu("PlayerStat", nullptr)
 
 	maxLife = 100;
 	currentLife = maxLife;
+	lifeRegen = 2;
 
 	maxStamina = 100;
 	currentStamina = maxStamina;
@@ -62,6 +63,8 @@ void PlayerStat::Init()
 	//canvas->AddWidget(geosCountText);
 
 	#pragma endregion
+
+	regenTimer = new Timer([&]() { RegenLifeAndStamina(); }, seconds(1), true, true);
 }
 
 
@@ -119,4 +122,14 @@ void PlayerStat::Death()
 	//{
 	//	_player->GetStats()->UpdateLife(1);
 	//} 
+}
+
+void PlayerStat::RegenLifeAndStamina()
+{
+	
+	if (currentStamina < maxStamina)
+		currentStamina = (currentStamina + staminaRegen >= maxStamina) ? maxStamina : currentStamina + staminaRegen;
+
+	if (currentLife < maxLife)
+		currentLife = (currentLife + lifeRegen >= maxLife) ? maxLife : currentLife + lifeRegen;
 }
