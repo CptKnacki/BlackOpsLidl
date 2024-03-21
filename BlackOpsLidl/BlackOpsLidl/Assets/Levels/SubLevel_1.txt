@@ -1,10 +1,10 @@
-BackgroundPath = Levels/Backgrounds/BackgroundZombie.png
+BackgroundPath = Levels/Backgrounds/TEST.png
 
 
 BackgroundPosX = -870
 BackgroundPosY = 0
-BackgroundSizeX = 5380
-BackgroundSizeY = 3200
+BackgroundSizeX = 3360
+BackgroundSizeY = 2144
 
 ClampCamMinX = 0
 ClampCamMinY = 0
