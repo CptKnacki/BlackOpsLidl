@@ -1,4 +1,4 @@
-BackgroundPath = Levels/Backgrounds/Kings Pass_100%.png
+BackgroundPath = Levels/Backgrounds/BackgroundZombie.png
 
 
 BackgroundPosX = -870
