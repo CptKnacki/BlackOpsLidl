@@ -23,9 +23,11 @@ GridNavigation* Game::grid;
 
 #define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
 #define PATH_VERTICAL_FENCE "VerticalFence.png"
+#define PATH_CRAFT_TABLE "CraftTable.png"
 
 #include "Zombie.h"
 #include "GPE_Fence.h"
+#include "GPE_CraftingTable.h"
 
 Game::Game()
 {
@@ -60,13 +62,18 @@ void Game::Init()
 	camera->Init();
 	brightness->Init();
 
-	Vector2f _fenceSize = Vector2f(100, 50);
+	Vector2f _fenceSize = Vector2f(100.0f, 50.0f);
 	ShapeData _dataFence = ShapeData(Vector2f(250.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 	ShapeData _dataFence2 = ShapeData(Vector2f(350.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 
-	GPE_Fence* _fenceTest = new GPE_Fence(_dataFence, 570);
-	GPE_Fence* _fenceTest2 = new GPE_Fence(_dataFence2, 570);
+	GPE_Fence* _fenceTest = new GPE_Fence(_dataFence, 10);
+	GPE_Fence* _fenceTest2 = new GPE_Fence(_dataFence2, 10);
 	//_fenceTest2->GetShape()->setScale(sf::Vector2f(0, 0));
+
+	Vector2f _craftSize = Vector2f(150.f, 170.f);
+	ShapeData _craftData = ShapeData(Vector2f(700.0f, -250.0f), _craftSize, PATH_CRAFT_TABLE);
+	GPE_CraftingTable* _craftingTable = new GPE_CraftingTable(_craftData);
+
 
 
 	grid->Generate();

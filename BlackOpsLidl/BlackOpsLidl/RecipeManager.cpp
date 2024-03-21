@@ -22,6 +22,7 @@ void RecipeManager::InitTurbineRecipe()
 
 	ShapeData _turbineData = ShapeData(Vector2f(0, 0), Vector2f(30, 120), PATH_TURBINE);
 	Turbine* _turbine = new Turbine(_turbineData);
+	_turbine->GetShape()->setScale(Vector2f(0, 0));
 
 	Recipe* _turbineRecipe = new Recipe(_turbine, _ingredients);
 
