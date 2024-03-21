@@ -1,4 +1,7 @@
 #include "Recipe.h"
+#include "Game.h"
+#include "Macro.h"
+
 
 Recipe::Recipe(RecipeResult* _result, vector<RecipeIngredient*> _ingredients)
 {
@@ -6,22 +9,42 @@ Recipe::Recipe(RecipeResult* _result, vector<RecipeIngredient*> _ingredients)
     ingredientsLists = _ingredients;
 }
 
-bool Recipe::CheckHasEnoughIngredients()
+
+bool Recipe::CheckHasEnoughIngredients(PlayerInventoryComponent* _inventoryComponent)
 {
-    return false;
+    const size_t _ingredientsSize = ingredientsLists.size();
+    vector<RecipeIngredient*> _ingredients = _inventoryComponent->GetCraftPart();
+
+    for (size_t i = 0; i < _ingredientsSize; i++)
+    {
+        if (!Contains<RecipeIngredient>(ingredientsLists[i], _ingredients))
+            return false;
+    }
+
+    return true;
+
 }
 
 void Recipe::CreateRecipeResult()
 {
-    if (!CheckHasEnoughIngredients())
+    PlayerInventoryComponent* _inventoryComponent = Game::GetPlayer()->GetComponent<PlayerInventoryComponent>();
+
+    if (!_inventoryComponent || CheckHasEnoughIngredients(_inventoryComponent))
         return;
 
-    // ADD RECIPE RESULT TO INVENTORY
-
-    RemoveIngredientsFromInventory();
+    RemoveIngredientsFromInventory(_inventoryComponent);
+    _inventoryComponent->AddCraftResult(recipeResult);
 
 }
 
-void Recipe::RemoveIngredientsFromInventory()
+void Recipe::RemoveIngredientsFromInventory(PlayerInventoryComponent* _inventoryComponent)
 {
+    const size_t _ingredientsSize = ingredientsLists.size();
+    vector<RecipeIngredient*> _ingredients = _inventoryComponent->GetCraftPart();
+
+    for (size_t i = 0; i < _ingredientsSize; i++)
+    {
+        EraseElement<RecipeIngredient>(_ingredients, ingredientsLists[i]);
+    }
+    
 }

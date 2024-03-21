@@ -1,15 +1,13 @@
 #pragma once
-#include "Actor.h"
+#include "InteractableActor.h"
 
-class GPE_CraftingTable : public Actor // TODO InteractableActor ??
+class GPE_CraftingTable : public InteractableActor 
 {
-
 
 public:
 	GPE_CraftingTable(const ShapeData& _data);
 	
-
 public:
-	void TryToCraft();
+	virtual void Interact() override;
 };
 

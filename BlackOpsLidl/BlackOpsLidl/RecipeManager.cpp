@@ -4,9 +4,12 @@ RecipeManager::RecipeManager()
 {
 	// TODO poser toutes les Recipes
 
+
+	// First Recipe : TURBINE -> FAN + MANNEQUIN + BATTERY
 }
 
 void RecipeManager::CheckForAnyRecipes()
 {
-	//TODO Tester tout les CheckHasEnough de toutes les Recipe
+	for (Recipe* _recipe : allRecipes)
+		_recipe->CreateRecipeResult();
 }

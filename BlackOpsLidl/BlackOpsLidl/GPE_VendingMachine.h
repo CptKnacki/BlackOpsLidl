@@ -1,9 +1,9 @@
 #pragma once
-#include "Actor.h"
+#include "InteractableActor.h"
 #include "GPE_BonusDrink.h"
 
 
-class GPE_VendingMachine : public Actor
+class GPE_VendingMachine : public InteractableActor
 {
 
 	int vendingPrice;
@@ -16,12 +16,9 @@ public:
 	int GetVendingPrice() const { return vendingPrice; }
 	bool GetIsAvailable() const { return isAvailable; }
 	GPE_BonusDrink* GetBonusDrink() const { return currentVendingDrink; }
-	// TODO Rajouter dans le player inventory une liste des boissons et des collectibles
-	// Pour le GPE_CraftTable check les composants présents dans l'inventaire et si 
-	//		tout les composants d'une recette sont présents, effectuer le craft
 
 public:
-	void CheckCanAffordDrink();
+	virtual void Interact() override;
 	void GiveDrink();
 };
 

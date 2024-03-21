@@ -26,14 +26,7 @@ void InteractionComponent::TryToInteract()
 			merchand->GetComponent<AnimationComponent>()->RunAnimation("Sell", 1);
 		}
 
-		else if(pnj = dynamic_cast<PNJ*>(_interactable))
-		{
-			//_interactable->OpenDiscussion();
-			pnj->OpenDiscussion();
-			pnj->GetComponent<AnimationComponent>()->RunAnimation("Talk", 1);
-		}
-
-		inventory->SetStatus(false);
+		_interactable->Interact();
 	}
 }
 

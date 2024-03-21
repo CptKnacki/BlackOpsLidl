@@ -153,6 +153,7 @@
     <ClCompile Include="Recipe.cpp" />
     <ClCompile Include="RecipeIngredient.cpp" />
     <ClCompile Include="RecipeManager.cpp" />
+    <ClCompile Include="RecipeResult.cpp" />
     <ClCompile Include="ScrollBar.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
     <ClCompile Include="ShapeWidget.cpp" />
@@ -306,6 +307,7 @@
     <ClInclude Include="Recipe.h" />
     <ClInclude Include="RecipeIngredient.h" />
     <ClInclude Include="RecipeManager.h" />
+    <ClInclude Include="RecipeResult.h" />
     <ClInclude Include="ScrollBar.h" />
     <ClInclude Include="ShapeObject.h" />
     <ClInclude Include="ShapeWidget.h" />

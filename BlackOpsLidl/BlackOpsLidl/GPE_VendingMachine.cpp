@@ -4,13 +4,13 @@
 #include "Game.h"
 #include "PlayerInventoryComponent.h"
 
-GPE_VendingMachine::GPE_VendingMachine(const ShapeData& _data, int _vendingPrice) : Actor(STRING_ID("VendingMachine"), _data)
+GPE_VendingMachine::GPE_VendingMachine(const ShapeData& _data, int _vendingPrice) : InteractableActor(STRING_ID("VendingMachine"), _data)
 {
 
 	vendingPrice = _vendingPrice;
 }
 
-void GPE_VendingMachine::CheckCanAffordDrink()
+void GPE_VendingMachine::Interact()
 {
 	if (!isAvailable)
 		return;

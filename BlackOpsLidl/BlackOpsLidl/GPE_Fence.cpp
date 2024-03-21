@@ -3,14 +3,14 @@
 #include "Game.h"
 
 GPE_Fence::GPE_Fence(const ShapeData& _data, int _moneyRequired)
-	: Actor(STRING_ID("Fence"), _data)
+	: InteractableActor(STRING_ID("Fence"), _data)
 {
 	isOpen = false;
 	moneyRequired = _moneyRequired;
 
 }
 
-void GPE_Fence::TryToOpen()
+void GPE_Fence::Interact()
 {
 	PlayerStat* _playerStats = Game::GetPlayer()->GetStats();
 	int _playerMoney = _playerStats->GetMoney();

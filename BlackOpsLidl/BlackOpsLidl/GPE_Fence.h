@@ -1,10 +1,10 @@
 #pragma once
-#include "Actor.h"
+#include "InteractableActor.h"
 
 
 
 
-class GPE_Fence : public Actor
+class GPE_Fence : public InteractableActor
 {
 
 	bool isOpen;
@@ -17,7 +17,7 @@ public:
 	int GetMoneyRequired() const { return moneyRequired; }
 
 public:
-	void TryToOpen();
+	virtual void Interact() override;
 	void OpenDoor();
 	void CloseDoor();
 };

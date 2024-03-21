@@ -1,8 +1,8 @@
 #pragma once
-#include "Actor.h"
+#include "InteractableActor.h"
 
 
-class GPE_Bus : public Actor
+class GPE_Bus : public InteractableActor
 {
 	int currentLevelIndex = 1;
 
@@ -11,6 +11,6 @@ public:
 	GPE_Bus(const ShapeData& _data);
 
 public:
-	void ChangingLevelBehaviour();
+	virtual void Interact() override;
 };
 
