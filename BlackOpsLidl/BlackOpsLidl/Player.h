@@ -7,6 +7,7 @@
 #include "PlayerMovementComponent.h"
 #include "PlayerAttackComponent.h"
 #include "PlayerAnimationComponent.h"
+#include "PlayerInventoryComponent.h"
 #include "InteractionComponent.h"
 #include "CollisionComponent.h"
 #include "PlayerSoundData.h"
@@ -18,12 +19,12 @@ class Player : public Actor
 {
 	PauseMenu* pauseMenu;
 	PlayerStat* stats;
-	Inventory* inventory;
 	CharmsMenu* charmsMenu;
 	PlayerMovementComponent* movement;
 	PlayerAttackComponent* attack;
 	PlayerAnimationComponent* animation;
 	InteractionComponent* interaction;
+	PlayerInventoryComponent* inventory;
 	CircleShape* light;
 	SoundData* sound;
 	PlayerSoundData data;
@@ -38,7 +39,7 @@ public:
 	{
 		return stats;
 	}
-	Inventory* GetInventory() const
+	PlayerInventoryComponent* GetInventory() const
 	{
 		return inventory;
 	}

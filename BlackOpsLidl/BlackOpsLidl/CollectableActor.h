@@ -1,7 +1,9 @@
 #pragma once
 #include "Actor.h"
-#include "Player.h"
 #include"AnimationComponent.h"
+#include "Item.h"
+
+class Player;
 
 class CollectableActor : public Actor
 {
@@ -9,12 +11,8 @@ class CollectableActor : public Actor
 	ItemData data;
 	Player* player;
 
-	//vector<string> animCollectable;
 public:
-	ItemData GetItemData()
-	{
-		return data;
-	}
+	ItemData GetItemData();
 public:
 	CollectableActor(const string& _name, const ShapeData& _data, const float _range,
 					 const string& _title, const string& _text, const ItemType& _type);

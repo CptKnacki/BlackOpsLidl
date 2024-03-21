@@ -11,6 +11,11 @@ enum ItemType
 	IT_VESSEL,
 	IT_ITEM,
 	IT_GEOS,
+
+	IT_FAN,
+	IT_MANNEQUIN,
+	IT_BATTERY,
+	IT_TURBINE,
 };
 
 struct ItemData

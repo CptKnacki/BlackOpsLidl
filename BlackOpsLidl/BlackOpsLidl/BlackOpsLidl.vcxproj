@@ -45,6 +45,7 @@
     <ClCompile Include="AttackToDeath.cpp" />
     <ClCompile Include="AttackToPatrol.cpp" />
     <ClCompile Include="AudioMenu.cpp" />
+    <ClCompile Include="Battery.cpp" />
     <ClCompile Include="Belfly.cpp" />
     <ClCompile Include="Bench.cpp" />
     <ClCompile Include="BonusDrinkManager.cpp" />
@@ -80,6 +81,7 @@
     <ClCompile Include="EnergyDrink.cpp" />
     <ClCompile Include="ExtrasMenu.cpp" />
     <ClCompile Include="FalseKnight.cpp" />
+    <ClCompile Include="Fan.cpp" />
     <ClCompile Include="FileLoader.cpp" />
     <ClCompile Include="FontData.cpp" />
     <ClCompile Include="FontManager.cpp" />
@@ -115,6 +117,7 @@
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Mannequin.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuManager.cpp" />
@@ -174,6 +177,7 @@
     <ClCompile Include="TitleMenu.cpp" />
     <ClCompile Include="Transition.cpp" />
     <ClCompile Include="TriggerBox.cpp" />
+    <ClCompile Include="Turbine.cpp" />
     <ClCompile Include="VideoMenu.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Widget.cpp" />
@@ -198,6 +202,7 @@
     <ClInclude Include="AttackToDeath.h" />
     <ClInclude Include="AttackToPatrol.h" />
     <ClInclude Include="AudioMenu.h" />
+    <ClInclude Include="Battery.h" />
     <ClInclude Include="Belfly.h" />
     <ClInclude Include="Bench.h" />
     <ClInclude Include="BlackBoard.h" />
@@ -234,6 +239,7 @@
     <ClInclude Include="EnergyDrink.h" />
     <ClInclude Include="ExtrasMenu.h" />
     <ClInclude Include="FalseKnight.h" />
+    <ClInclude Include="Fan.h" />
     <ClInclude Include="FileLoader.h" />
     <ClInclude Include="FontData.h" />
     <ClInclude Include="FontManager.h" />
@@ -270,6 +276,7 @@
     <ClInclude Include="Lift.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Mannequin.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuManager.h" />
@@ -331,6 +338,7 @@
     <ClInclude Include="TitleMenu.h" />
     <ClInclude Include="Transition.h" />
     <ClInclude Include="TriggerBox.h" />
+    <ClInclude Include="Turbine.h" />
     <ClInclude Include="VideoMenu.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="Widget.h" />

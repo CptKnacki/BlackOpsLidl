@@ -1,9 +1,14 @@
 #include "CollectableActor.h"
 #include "Game.h"
 #include "Kismet.h"
-
+#include "Player.h"
 #include "RecipeIngredient.h"
 #include "PlayerInventoryComponent.h"
+
+ItemData CollectableActor::GetItemData()
+{
+	return data;
+}
 
 CollectableActor::CollectableActor(const string& _name, const ShapeData& _data, const float _range,
 								   const string& _title, const string& _text, const ItemType& _type) 

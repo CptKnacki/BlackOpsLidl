@@ -20,7 +20,6 @@ GridNavigation* Game::grid;
 #include "TriggerBox.h"
 
 #define PATH_ZOMBIE "Animations/Zombie.png"
-#define PATH_TEST_ZOMBIE "Animations/TEST_Zombie.png"
 
 #define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
 #define PATH_VERTICAL_FENCE "VerticalFence.png"
