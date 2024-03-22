@@ -27,7 +27,9 @@ class Player : public Actor
 	CircleShape* light;
 	SoundData* sound;
 	PlayerSoundData data;
+	Weapon* weapon;
 
+	vector<Bullet*> bullets;
 
 public:
 	void SetStatus(const bool _status)

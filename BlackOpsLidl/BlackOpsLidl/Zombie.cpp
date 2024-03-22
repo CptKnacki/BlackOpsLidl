@@ -15,6 +15,9 @@ Zombie::Zombie(const ShapeData& _data) : Enemy(STRING_ID("Zombie"), _data)
 	brain->GetBlackBoard()->hasTarget = true;
 	components.push_back(brain);
 
+	collision = new CollisionComponent(this, CT_OVERLAP);
+	components.push_back(collision);
+
 
 
 	ZombieWaveManager::GetInstance().AddZombie(this);

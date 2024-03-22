@@ -59,27 +59,6 @@ void Game::Init()
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);
 	
-
-
-	/*TriggerBox* _box = new TriggerBox(ShapeData(Vector2f(100.0f, 0.0f), Vector2f(200.0f, 200.0f), ""), [&]() {
-		cout << "coucou" << endl;
-	});
-
-	_box->GetComponent<CollisionComponent>()->GetBoxCollision()->GetDrawable()->setOutlineThickness(-5.0f);
-	_box->GetComponent<CollisionComponent>()->GetBoxCollision()->GetDrawable()->setFillColor(Color::Red);
-	//
-	//Vector2f _sizeBoofly = Vector2f(150.0f, 180.0f);
-	//Vector2f _sizeBelfly = Vector2f(50.0f, 50.0f);
-	//Vector2f _sizeHuskBully = Vector2f(75.0f, 75.0f);
-	//Vector2f _sizeFalseKnight = Vector2f(700.0f, 500.0f);
-	//
-	//ShapeData _dataHuskBully = ShapeData(Vector2f(300.0f, -150.0f), _sizeHuskBully, PATH_HUSK_BULLY, IntRect(5, 21, 105, 135));
-	//HuskBully* _huskBully = new HuskBully(_dataHuskBully);
-	//_huskBully->Init();
-	//
-	//ShapeData _data = ShapeData(_positionFalseKnight, _sizeFalseKnight, PATH_FALSE_KNIGHT);
-	//FalseKnight* _falseKnight = new FalseKnight(_data);
-	//_falseKnight->Init();*/
 }
 
 void Game::Update()

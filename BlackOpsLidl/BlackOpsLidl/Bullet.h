@@ -1,28 +1,24 @@
-#pragma once
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include "Actor.h"
+#include "TextureManager.h"
+#include "ActorManager.h"
+#include "BulletMovementComponent.h"
 
-
-using namespace std;
 using namespace sf;
 
-class Bullet 
+#define BULLET_PATH "Assets/Textures/Weapons/lazer.png"
+
+class Bullet : public Actor
 {
-	Sprite *shapeBullet;
-	Vector2f direction;
-	float movementSpeed;
+public:
+    Sprite* shapeBullet;
+    Vector2f currVelocity;
+    float maxSpeed;
+    BulletMovementComponent* movement = nullptr;
 
 
 public:
-	Bullet(Vector2f _positionSpawn, Vector2f _directionToShoot, const float _movementSpeed);
 
-	~Bullet();
+    Bullet(const string& _name, const ShapeData& _data);
 
-public:
-	FloatRect GetBounds() const;
-	void Update();
-	void Render(RenderTarget* _target);
 };
-
 

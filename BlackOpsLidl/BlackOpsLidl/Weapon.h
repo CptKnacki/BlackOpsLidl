@@ -2,22 +2,20 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Bullet.h"
+#include "ActorManager.h"
 
 using namespace std;
 using namespace sf;
 
-class Weapon 
+class Weapon : public Actor
 {
 	Sprite* weaponSprite;
 	//Texture textureWeapon;
 	vector<Bullet*> bullets;
 
 public:
-	Weapon();
-	Weapon(Vector2f _position);
+	Weapon(const string& _name, const ShapeData& _data);
 
-public:
-	void Shoot();
 
 };
 

@@ -55,6 +55,7 @@
     <ClCompile Include="Brain.cpp" />
     <ClCompile Include="BrightnessMenu.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletMovementComponent.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Canvas.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Brain.h" />
     <ClInclude Include="BrightnessMenu.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletMovementComponent.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Canvas.h" />

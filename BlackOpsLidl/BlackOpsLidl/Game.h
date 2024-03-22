@@ -7,7 +7,6 @@
 #include "Player.h"
 #include "Camera.h"
 #include "GridNavigation.h"
-#include "Bullet.h"
 
 using namespace std;
 using namespace sf;

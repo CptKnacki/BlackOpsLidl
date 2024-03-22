@@ -72,7 +72,7 @@ void PlayerMovementComponent::Update(const float _deltaTime)
 				isResetingDash = false;
 			}, seconds(dashCooldown));
 		}
-
+		 
 		// Déplacement par défaut
 		_offset = direction * speed * _deltaTime;
 

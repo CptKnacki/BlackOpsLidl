@@ -25,6 +25,8 @@
 #define PATH_ITEM "UIs/Inventory/Item.png"
 #define PATH_DEATHMOB "Animations/DeathMob.png"
 #define DEAD_ZONE 50.0f
+#define PATH_WEAPON "Weapons/weapon1.png"
+#define PATH_BULLET "Weapons/lazer.png"
 
 
 
@@ -138,8 +140,9 @@ void Player::SetupPlayerInput()
 
 	new ActionMap("Attack", {
 		ActionData("RightClick", [&]() {
-			Weapon* weapon = new Weapon(GetShapePosition());
-			weapon->Shoot();
+
+			Bullet* bullet = new Bullet(STRING_ID("Bullet"), ShapeData(GetPosition(), Vector2f(75.0f, 30.0f), PATH_BULLET));
+			cout << "Bullet" << endl; 
 		}, InputData({ActionType::MouseButtonPressed, Mouse::Right}))
 		});
 

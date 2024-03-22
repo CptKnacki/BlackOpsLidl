@@ -28,7 +28,7 @@ Map::Map()
 	//grub = new Grub(ShapeData(Vector2f(950.0f, 0.0f), Vector2f(75.0f, 100.0f), PATH_GRUB));
 	//dragon = new Dragon(ShapeData(Vector2f(700.0f, 0.0f), Vector2f(100.0f, 100.0f), PATH_DRAGON));
 	//bench = new Bench(ShapeData(Vector2f(300.0f, 5.0f), Vector2f(176.0, 80.0f), PATH_BENCH));
-	//merchand = new Merchand(ShapeData(Vector2f(500.0f, 0.0f), Vector2f(100.0f, 100.0f), PATH_MERCHAND));
+	merchand = new Merchand(ShapeData(Vector2f(500.0f, 0.0f), Vector2f(100.0f, 100.0f), PATH_MERCHAND));
 	currentLevel = 1;
 }
 
@@ -310,7 +310,7 @@ void Map::Init()
 {
 	MapData _mapdata = LoadMapData(GetLevelFromIndex(currentLevel));
 	//bench->Init();
-	//merchand->	Init();
+ 	merchand->Init();
 	//pnj->Init();
 
 
