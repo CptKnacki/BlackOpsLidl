@@ -23,6 +23,9 @@ InGameMenu* Game::inGameMenu;
 #define PATH_MERCHAND "Characters/PNJ/Merchand.png"
 #define PATH_ZOMBIE "Animations/Zombie.png"
 #define PATH_BUS "Bus.png"
+#define PATH_BATTERY "Battery.png"
+#define PATH_MANNEQUIN "Mannequin.png"
+#define PATH_FAN "Fan.png"
 
 #define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
 #define PATH_VERTICAL_FENCE "VerticalFence.png"
@@ -32,6 +35,9 @@ InGameMenu* Game::inGameMenu;
 #include "GPE_Fence.h"
 #include "GPE_CraftingTable.h"
 #include "GPE_Bus.h"
+#include "Battery.h"
+#include "Mannequin.h"
+#include "Fan.h"
 
 Game::Game()
 {
@@ -94,6 +100,14 @@ void Game::Init()
 	Vector2f _busSize = Vector2f(250.0f, 200.0f);
 	GPE_Bus* _bus = new GPE_Bus(ShapeData(Vector2f(1300.0f, -250.0f), _busSize, PATH_BUS));
 
+	Vector2f _batterySize = Vector2f(40, 60);
+	Battery* _battery = new Battery(ShapeData(Vector2f(900.0f, 0.0f), _batterySize, PATH_BATTERY), 1.0f);
+
+	Vector2f _mannequinSize = Vector2f(40, 60);
+	Mannequin* _mannequin = new Mannequin(ShapeData(Vector2f(1100.0f, 0.0f), _mannequinSize, PATH_MANNEQUIN), 1.0f);
+
+	Vector2f _fanSize = Vector2f(40, 60);
+	Fan* _fan = new Fan(ShapeData(Vector2f(1200.0f, 0.0f), _fanSize, PATH_FAN), 1.0f);
 
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);

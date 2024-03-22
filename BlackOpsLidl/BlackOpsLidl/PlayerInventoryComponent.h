@@ -20,7 +20,7 @@ public:
 	vector<GPE_BonusDrink*> GetBonusDrinks() const { return drinks; }
 public: 
 	void AddBonusDrink(GPE_BonusDrink* _drink);
-	void AddCraftPart(RecipeIngredient* _ingredient) { craftPart.push_back(_ingredient); }
-	void AddCraftResult(RecipeResult* _result) { craftResults.push_back(_result); }
+	void AddCraftPart(RecipeIngredient* _ingredient);
+	void AddCraftResult(RecipeResult* _result);
 };
 

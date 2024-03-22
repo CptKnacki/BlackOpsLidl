@@ -77,3 +77,26 @@ void InGameMenu::AddBonusDrinkUI(string _path)
 
 }
 
+void InGameMenu::AddItemUI(string _path)
+{
+	if (items.size() != 0)
+	{
+		for (string _str : items)
+		{
+			if (_str == _path)
+				return;
+		}
+	}
+
+	Vector2f _itemIconPosition = Vector2f(70, 250);
+	Vector2f _itemIconSize = Vector2f(60, 60);
+
+	Vector2f _nextPosition = _itemIconPosition + Vector2f(0, (_itemIconSize.y + 10) * items.size());
+
+	ShapeWidget* _shape = new ShapeWidget(ShapeData(_nextPosition, _itemIconSize, _path));
+
+	items.push_back(_path);
+	canvas->AddWidget(_shape);
+
+}
+

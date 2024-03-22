@@ -46,8 +46,7 @@ void Recipe::RemoveIngredientsFromInventory(PlayerInventoryComponent* _inventory
 {
     const size_t _ingredientsSize = ingredientsLists.size();
     vector<RecipeIngredient*> _ingredients = _inventoryComponent->GetCraftPart();
-
-
+    vector<string> _list = Game::GetInGameMenu()->GetItemsList();
 
     for (size_t i = 0; i < _ingredientsSize; i++)
     {
@@ -56,6 +55,7 @@ void Recipe::RemoveIngredientsFromInventory(PlayerInventoryComponent* _inventory
         if (_index == -4)
             continue;
 
+        _list.erase(remove(_list.begin(), _list.end(), _ingredients[_index]->GetShapePath()), _list.end());
         EraseElement<RecipeIngredient>(_ingredients, _ingredients[_index]);
     }
     

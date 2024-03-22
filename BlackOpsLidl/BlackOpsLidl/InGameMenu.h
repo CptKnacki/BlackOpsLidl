@@ -7,8 +7,6 @@
 
 class InGameMenu : public Menu
 {
-	vector<ShapeWidget*> items;
-	vector<ShapeWidget*> bonus;
 	vector<ShapeWidget*> weapons;
 
 	ShapeWidget* lifeBar;
@@ -19,14 +17,19 @@ class InGameMenu : public Menu
 	Label* moneyCountText;
 	Label* currentWaveCount;
 
+	vector<string> items;
 	vector<string> drinks;
 
 public:
 	InGameMenu(Menu* _owner);
 
+
+	vector<string> GetItemsList() const { return items; }
 public:
 	virtual void Init() override;
 	void UpdateMenu();
 	void AddBonusDrinkUI(string _path);
+	void AddItemUI(string _path);
+
 };
 
