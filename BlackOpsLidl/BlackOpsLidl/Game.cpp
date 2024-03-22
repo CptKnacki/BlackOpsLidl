@@ -16,28 +16,48 @@ Player* Game::player;
 Camera* Game::camera;
 Brightness* Game::brightness;
 GridNavigation* Game::grid;
+InGameMenu* Game::inGameMenu;
 
 #include "TriggerBox.h"
 
+#define PATH_MERCHAND "Characters/PNJ/Merchand.png"
 #define PATH_ZOMBIE "Animations/Zombie.png"
-#define PATH_TEST_ZOMBIE "Animations/TEST_Zombie.png"
+#define PATH_BUS "Bus.png"
+#define PATH_BATTERY "Battery.png"
+#define PATH_MANNEQUIN "Mannequin.png"
+#define PATH_FAN "Fan.png"
 
 #define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
 #define PATH_VERTICAL_FENCE "VerticalFence.png"
+#define PATH_CRAFT_TABLE "CraftTable.png"
 
 #include "Zombie.h"
 #include "GPE_Fence.h"
+#include "GPE_CraftingTable.h"
+#include "GPE_Bus.h"
+#include "Battery.h"
+#include "Mannequin.h"
+#include "Fan.h"
 
 Game::Game()
 {
 	menu = new MainMenu();
+
+	inGameMenu = new InGameMenu(menu);
+	inGameMenu->SetStatus(false);
+
 	player = new Player("Player", ShapeData(Vector2f(0, 0), Vector2f(75.0f, 75.0f), PATH_PLAYER));
+	
 	map = new Map();
+	
 	camera = new Camera();
+	
 	brightness = new Brightness();
 
 	grid = new GridNavigation(17, 50, Vector2f(-300,-400));
-} 
+
+}
+
 
 Game::~Game()
 {
@@ -61,14 +81,33 @@ void Game::Init()
 	camera->Init();
 	brightness->Init();
 
-	Vector2f _fenceSize = Vector2f(100, 50);
+	Vector2f _fenceSize = Vector2f(100.0f, 50.0f);
 	ShapeData _dataFence = ShapeData(Vector2f(250.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 	ShapeData _dataFence2 = ShapeData(Vector2f(350.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 
-	GPE_Fence* _fenceTest = new GPE_Fence(_dataFence, 570);
-	GPE_Fence* _fenceTest2 = new GPE_Fence(_dataFence2, 570);
+	GPE_Fence* _fenceTest = new GPE_Fence(_dataFence, 10);
+	GPE_Fence* _fenceTest2 = new GPE_Fence(_dataFence2, 10);
 	//_fenceTest2->GetShape()->setScale(sf::Vector2f(0, 0));
 
+	Vector2f _craftSize = Vector2f(150.f, 170.f);
+	ShapeData _craftData = ShapeData(Vector2f(700.0f, -250.0f), _craftSize, PATH_CRAFT_TABLE);
+	GPE_CraftingTable* _craftingTable = new GPE_CraftingTable(_craftData);
+
+	Vector2f _merchandSize = Vector2f(80.0f, 110.0f);
+	ShapeData _merchandData = ShapeData(Vector2f(900.0f, -250.0f), _merchandSize, PATH_MERCHAND);
+	Merchand* _merchand = new Merchand(_merchandData);
+
+	Vector2f _busSize = Vector2f(250.0f, 200.0f);
+	GPE_Bus* _bus = new GPE_Bus(ShapeData(Vector2f(1300.0f, -250.0f), _busSize, PATH_BUS));
+
+	Vector2f _batterySize = Vector2f(40, 60);
+	Battery* _battery = new Battery(ShapeData(Vector2f(900.0f, 0.0f), _batterySize, PATH_BATTERY), 1.0f);
+
+	Vector2f _mannequinSize = Vector2f(40, 60);
+	Mannequin* _mannequin = new Mannequin(ShapeData(Vector2f(1100.0f, 0.0f), _mannequinSize, PATH_MANNEQUIN), 1.0f);
+
+	Vector2f _fanSize = Vector2f(40, 60);
+	Fan* _fan = new Fan(ShapeData(Vector2f(1200.0f, 0.0f), _fanSize, PATH_FAN), 1.0f);
 
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);
@@ -85,6 +124,7 @@ void Game::Update()
 		player->GetLight()->setPosition(player->GetShapePosition().x + 50.0f, player->GetShapePosition().y + 50.0f);
 		ActorManager::GetInstance().Update();
 		ZombieWaveManager::GetInstance().Update();
+		inGameMenu->UpdateMenu();
 	}
 }
 
@@ -103,11 +143,10 @@ void Game::UpdateWindow()
 	//window.draw(*player->GetLight());
 	DrawUIs();
 
-	grid->ShowNodes();
-	ZombieWaveManager::GetInstance().DrawZombiesPath();
+	//grid->ShowNodes();
+	//ZombieWaveManager::GetInstance().DrawZombiesPath();
 
 
-	//DrawUIs();
 	window.display();
 }
 

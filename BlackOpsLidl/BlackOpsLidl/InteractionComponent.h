@@ -1,13 +1,13 @@
 #pragma once
 #include "Component.h"
-#include "Inventory.h"
+#include "PlayerInventoryComponent.h"
 #include "Merchand.h"
 #include"PNJ.h"
 
 class InteractionComponent : public Component
 {
 	float range;
-	Inventory* inventory;
+	PlayerInventoryComponent* inventory;
 	Merchand* merchand;
 	PNJ* pnj;
 

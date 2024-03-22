@@ -41,7 +41,8 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name, _data
 	attack = new PlayerAttackComponent(this, 1);
 	components.push_back(attack);
 
-	inventory = new Inventory(); // before interaction
+	inventory = new PlayerInventoryComponent(this);
+	components.push_back(inventory);
 
 	interaction = new InteractionComponent(this);
 	components.push_back(interaction);
@@ -149,13 +150,6 @@ void Player::SetupPlayerInput()
 		ActionData("Pause", [&]() {
 			TryToOpen(pauseMenu);
 			stats->SetStatus(false);
-		}, InputData({ ActionType::KeyPressed, Keyboard::Escape })),
-		ActionData("Inventory", [&]() { TryToOpen(inventory); }, InputData({ ActionType::KeyPressed, Keyboard::B })),
-		ActionData("ControllerInventory", [&]() {
-			if (Joystick::isButtonPressed(0, 6))
-			{
-				TryToOpen(inventory);
-			}
 		}, InputData({ ActionType::JoystickButtonPressed, Joystick::isButtonPressed(0,6) })),
 		ActionData("CharmsMenu", [&]() {
 		}, InputData({ ActionType::KeyPressed, Keyboard::P })),
@@ -190,7 +184,6 @@ void Player::CloseAllMenus(const bool _restoreActions)
 {
 	charmsMenu->SetStatus(false);
 	stats->SetStatus(true);
-	inventory->SetStatus(false);
 	interaction->StopInteract();
 
 	if (_restoreActions)
@@ -205,7 +198,6 @@ void Player::Init()
 {
 	movement->SetCanMove(true);
 	stats->SetStatus(true);
-	inventory->SetStatus(false);
 	charmsMenu->SetStatus(false);
 
 	InitAnimations();

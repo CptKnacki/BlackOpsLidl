@@ -99,3 +99,4 @@ void EraseElement(vector<T*>& _vector, const T* _element)
 {
 	_vector.erase(remove(_vector.begin(), _vector.end(), _element), _vector.end());
 }
+

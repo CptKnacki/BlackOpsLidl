@@ -13,5 +13,9 @@ public:
 
 public:
 	void CheckForAnyRecipes();
+
+private:
+	void InitTurbineRecipe();
+
 };
 

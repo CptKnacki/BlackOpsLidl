@@ -13,6 +13,7 @@ protected:
 	vector<Component*> components;
 	CollisionComponent* collision;
 	AnimationComponent* animation;
+	string shapePath;
 public:
 	template <typename T>
 	T* GetComponent() const
@@ -35,6 +36,7 @@ public:
 	Actor(const string& _name, const ShapeData& _data, const CollisionType& _collisionType = CT_NONE);
 	~Actor();
 
+	string GetShapePath() const { return shapePath; }
 protected:
 	virtual void Register() override;
 	

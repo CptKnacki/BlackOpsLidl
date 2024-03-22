@@ -6,6 +6,8 @@
 Actor::Actor(const string& _name, const ShapeData& _data, const CollisionType& _collisionType)
 		   : ShapeObject(_data), IManagable(_name)
 {
+	shapePath = _data.path;
+
 	Register();
 	SetOriginAtMiddle(GetDrawable());
 

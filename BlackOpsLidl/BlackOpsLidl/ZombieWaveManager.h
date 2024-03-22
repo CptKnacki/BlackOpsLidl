@@ -10,6 +10,7 @@ class ZombieWaveManager : public Singleton<ZombieWaveManager>
 	vector<Zombie*> allZombies;
 	Timer* inBetweenWaveTimer = nullptr;
 	float timeBetweenWave = 3.0f;
+	int waveCount = 1;
 
 	ZombieSpawner* spawnerTest;
 
@@ -19,7 +20,7 @@ public:
 
 	void AddSpawner(ZombieSpawner* _spawner) { allSpawners.push_back(_spawner); }
 	void AddZombie(Zombie* _zombie) { allZombies.push_back(_zombie); }
-
+	int GetWaveCount() const { return waveCount; }
 public:
 	void Init();
 	void Update();

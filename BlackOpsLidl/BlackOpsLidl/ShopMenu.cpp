@@ -3,15 +3,19 @@
 #include "Game.h"
 #include "HUD.h"
 
-#define PATH_ITEM "UIs/Inventory/Core.png"
-#define PATH_LANTERN "UIs/Inventory/Lantern.png"
+#define PATH_AK47 "Weapons/AK-47.png"
+#define PATH_TEC9 "Weapons/TEC-9.png"
+#define PATH_MP9 "Weapons/MP9.png"
+#define PATH_SCOUT "Weapons/SCOUT.png"
+#define PATH_VEKTOR2 "Weapons/VEKTOR-2.png"
+#define PATH_BARRET50 "Weapons/BARRET-50.png"
 
 #define PATH_SHOP "UIs/Shop/Shop.png"
-#define PATH_GEO "UIs/Shop/Geo.png"
+#define PATH_DOLLAR "DollarBill.png"
 
 ShopMenu::ShopMenu(Menu* _owner, Merchand* _merchand) : Menu("Shop", _owner)
 {
-	timeBeforeOpenShop = 8.0f;
+	timeBeforeOpenShop = 1.0f;
 	buttons = vector<Button*>();
 	descriptionTitle = nullptr;
 	descriptionText = nullptr;
@@ -28,8 +32,8 @@ void ShopMenu::Init()
 
 	#pragma region Background
 
-	const Vector2f& _shopSize = Vector2f(_halfWindowSize.x * 0.8f, _windowSize.y);
-	const Vector2f& _shopPos = Vector2f(_halfWindowSize.x + _shopSize.x / 2.0f, _halfWindowSize.y);
+	const Vector2f& _shopSize = Vector2f(_halfWindowSize.x, _windowSize.y);
+	const Vector2f& _shopPos = Vector2f(_halfWindowSize.x, _halfWindowSize.y);
 	ShapeWidget* _shop = new ShapeWidget(ShapeData(_shopPos, _shopSize, PATH_SHOP));
 	canvas->AddWidget(_shop);
 
@@ -39,29 +43,49 @@ void ShopMenu::Init()
 
 	items = {
 		{
-			PATH_LANTERN,
-			200,
-			"Lantern",
-			"This is a simple lantern."
+			PATH_TEC9,
+			850,
+			"TEC-9",
+			"A small full auto handgun but with a very \n bad temper."
 		},
 		{
-			PATH_ITEM,
-			300,
-			"Gathering Swarm",
-			"Do you find yourself leaving a\n"
-			"lot of Geo behind as you hurry\n"
-			"through the caverns ?\n\n"
-			"This charm will make sure that\n"
-			"any loose change finds its way\n"
-			"back to you."
+			PATH_MP9,
+			1600,
+			"MP9",
+			"A popular submachine gun easy to control \n but not to handle."
 		},
+		{
+			PATH_VEKTOR2,
+			1850,
+			"Vektor-2",
+			"A cool submachine gun known for his incredible \n fire rate."
+		},
+		{
+			PATH_SCOUT,
+			2100,
+			"Scout",
+			"A Simple sniper rifle that may or may not help \n you bunny hop."
+		},
+		{
+			PATH_AK47,
+			2700,
+			"AK-47",
+			"The one and only legendary rifle."
+		},
+		{
+			PATH_BARRET50,
+			3500,
+			"Barret-50",
+			"A massive sniper rifle that can pierce throught \n almost anything."
+		},
+
 	};
 
 	const float _widgetPosX = _shopPos.x - _shopSize.x * 0.35f;
-	const Vector2f& _widgetSize = Vector2f(60.0f, 60.0f);
-	const float _geoPosX = _widgetPosX + _widgetSize.x;
-	const Vector2f& _geoSize = Vector2f(30.0f, 30.0f);
-	const float _geoTextPosX = _geoPosX + _geoSize.x * 0.8f;
+	const Vector2f& _widgetSize = Vector2f(120.0f, 60.0f);
+	const float _dollarPosX = _widgetPosX + _widgetSize.x;
+	const Vector2f& _dollarSize = Vector2f(60.0f, 40.0f);
+	const float _dollarTextPosX = _dollarPosX + _dollarSize.x * 0.8f;
 	const float _startPosY = _shopPos.y - _shopSize.y * 0.275f;
 	const float _gapY = 10.0f;
 	const Vector2f& _buttonSize = Vector2f(_shopSize.x * 0.4f, _widgetSize.y + _widgetSize.y * 0.7f);
@@ -104,11 +128,11 @@ void ShopMenu::Init()
 		canvas->AddWidget(_widget);
 		_button->SetForeground(_widget);
 
-		ShapeWidget* _geo = new ShapeWidget(ShapeData(Vector2f(_geoPosX, _posY), _geoSize, PATH_GEO));
-		canvas->AddWidget(_geo);
+		ShapeWidget* _dollar = new ShapeWidget(ShapeData(Vector2f(_dollarPosX, _posY), _dollarSize, PATH_DOLLAR));
+		canvas->AddWidget(_dollar);
 
-		Label* _geoText = new Label(TextData(to_string(_item.price), Vector2f(_geoTextPosX, _posY - 3.5f), FONT), AT_LEFT);
-		canvas->AddWidget(_geoText);
+		Label* _dollarText = new Label(TextData(to_string(_item.price), Vector2f(_dollarTextPosX, _posY - 3.5f), FONT), AT_CENTER);
+		canvas->AddWidget(_dollarText);
 
 		_index++;
 	}

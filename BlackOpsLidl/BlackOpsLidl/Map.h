@@ -98,7 +98,6 @@ public:
 	~Map();
 
 private:
-	MapData LoadMapData(const string& _path);
 
 	void InitPlatforms();
 
@@ -124,4 +123,5 @@ private:
 
 public:
 	void Init();
+	MapData LoadMapData(const string& _path);
 };

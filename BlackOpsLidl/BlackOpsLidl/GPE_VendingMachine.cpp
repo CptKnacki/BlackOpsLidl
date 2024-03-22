@@ -29,7 +29,7 @@ void GPE_VendingMachine::GiveDrink()
 {
 	isAvailable = false;
 
-	PlayerInventoryComponent* _inventory = Game::GetPlayer()->GetComponent<PlayerInventoryComponent>();
+	PlayerInventoryComponent* _inventory = Game::GetPlayer()->GetInventory();
 
 	if (!_inventory)
 		return;

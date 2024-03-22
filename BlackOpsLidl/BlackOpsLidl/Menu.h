@@ -10,7 +10,7 @@
 #define PATH_BACKGROUND "UIs/Menus/Background.png"
 #define PATH_TITLE_ICON "UIs/Menus/TitleBarMenu.png"
 #define PATH_POINTER "UIs/Menus/Pointer.png"
-#define FONT "Font.ttf"
+#define FONT "pixelmix.ttf"
 
 class Menu : public IManagable<string>
 {
