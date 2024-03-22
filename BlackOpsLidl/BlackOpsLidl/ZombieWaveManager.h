@@ -10,7 +10,7 @@ class ZombieWaveManager : public Singleton<ZombieWaveManager>
 	vector<Zombie*> allZombies;
 	Timer* inBetweenWaveTimer = nullptr;
 	float timeBetweenWave = 3.0f;
-	int waveCount = 1;
+	int waveCount = 0;
 
 	ZombieSpawner* spawnerTest;
 

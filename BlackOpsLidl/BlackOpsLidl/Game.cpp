@@ -6,6 +6,7 @@
 #include "HUD.h"
 #include "Widget.h"
 #include "Spawner.h"
+#include "GPE_VendingMachine.h"
 
 #define PATH_PLAYER "Animations/knighModif.png"
 
@@ -26,6 +27,7 @@ InGameMenu* Game::inGameMenu;
 #define PATH_BATTERY "Battery.png"
 #define PATH_MANNEQUIN "Mannequin.png"
 #define PATH_FAN "Fan.png"
+#define PATH_VENDING "VendingMachine.png"
 
 #define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
 #define PATH_VERTICAL_FENCE "VerticalFence.png"
@@ -38,6 +40,7 @@ InGameMenu* Game::inGameMenu;
 #include "Battery.h"
 #include "Mannequin.h"
 #include "Fan.h"
+#include "BonusDrinkManager.h"
 
 Game::Game()
 {
@@ -85,12 +88,12 @@ void Game::Init()
 	ShapeData _dataFence = ShapeData(Vector2f(250.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 	ShapeData _dataFence2 = ShapeData(Vector2f(350.0f, -250.0f), _fenceSize, PATH_HORIZONTAL_FENCE);
 
-	GPE_Fence* _fenceTest = new GPE_Fence(_dataFence, 10);
-	GPE_Fence* _fenceTest2 = new GPE_Fence(_dataFence2, 10);
+	GPE_Fence* _fenceTest = new GPE_Fence(_dataFence, 750);
+	GPE_Fence* _fenceTest2 = new GPE_Fence(_dataFence2, 750);
 	//_fenceTest2->GetShape()->setScale(sf::Vector2f(0, 0));
 
 	Vector2f _craftSize = Vector2f(150.f, 170.f);
-	ShapeData _craftData = ShapeData(Vector2f(700.0f, -250.0f), _craftSize, PATH_CRAFT_TABLE);
+	ShapeData _craftData = ShapeData(Vector2f(0, -550.0f), _craftSize, PATH_CRAFT_TABLE);
 	GPE_CraftingTable* _craftingTable = new GPE_CraftingTable(_craftData);
 
 	Vector2f _merchandSize = Vector2f(80.0f, 110.0f);
@@ -98,7 +101,7 @@ void Game::Init()
 	Merchand* _merchand = new Merchand(_merchandData);
 
 	Vector2f _busSize = Vector2f(250.0f, 200.0f);
-	GPE_Bus* _bus = new GPE_Bus(ShapeData(Vector2f(1300.0f, -250.0f), _busSize, PATH_BUS));
+	GPE_Bus* _bus = new GPE_Bus(ShapeData(Vector2f(1800, -250.0f), _busSize, PATH_BUS));
 
 	Vector2f _batterySize = Vector2f(40, 60);
 	Battery* _battery = new Battery(ShapeData(Vector2f(900.0f, 0.0f), _batterySize, PATH_BATTERY), 1.0f);
@@ -108,6 +111,13 @@ void Game::Init()
 
 	Vector2f _fanSize = Vector2f(40, 60);
 	Fan* _fan = new Fan(ShapeData(Vector2f(1200.0f, 0.0f), _fanSize, PATH_FAN), 1.0f);
+
+	Vector2f _vendingSize = Vector2f(50, 150);
+	GPE_VendingMachine* _vending1 = new GPE_VendingMachine(ShapeData(Vector2f(1100.0f, -500.0f), _vendingSize, PATH_VENDING), BonusDrinkManager::GetInstance().GetDrinkByName(PHD_FLOPPER), 1850);
+	GPE_VendingMachine* _vending2 = new GPE_VendingMachine(ShapeData(Vector2f(1350.0f, -500.0f), _vendingSize, PATH_VENDING), BonusDrinkManager::GetInstance().GetDrinkByName(JUGGERNAUT), 1850);
+	GPE_VendingMachine* _vending3 = new GPE_VendingMachine(ShapeData(Vector2f(1600.0f, -500.0f), _vendingSize, PATH_VENDING), BonusDrinkManager::GetInstance().GetDrinkByName(DOUBLE_SHOT), 1850);
+
+
 
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);

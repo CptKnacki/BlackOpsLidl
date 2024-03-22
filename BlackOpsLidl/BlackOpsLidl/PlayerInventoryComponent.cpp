@@ -6,8 +6,6 @@
 PlayerInventoryComponent::PlayerInventoryComponent(Actor* _owner) : Component(_owner)
 {
 
-	AddBonusDrink(BonusDrinkManager::GetInstance().GetDrinkByName(JUGGERNAUT)); // TODO REMOVE
-	AddBonusDrink(BonusDrinkManager::GetInstance().GetDrinkByName(DOUBLE_SHOT)); // TODO REMOVE
 }
 
 void PlayerInventoryComponent::AddBonusDrink(GPE_BonusDrink* _drink)
