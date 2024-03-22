@@ -24,3 +24,5 @@ vector<HitInfo> RaycastAll(const Vector2f& _origin, const Vector2f& _direction, 
 						   const vector<Shape*>& _ignoredShapes, const float _precision = 0.01f);
  
 bool BoxCast(const FloatRect& _boxRect, HitInfo& _hitInfo, const vector<Actor*>& _ignoredActors);
+
+bool BoxCastAll(const FloatRect& _boxRect, vector<HitInfo>& _hitsInfo, const vector<Actor*>& _ignoredActors);

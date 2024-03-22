@@ -71,7 +71,6 @@ void Player::SetupPlayerInput()
 		ActionData("ConvertManaToLife", [&]() {
 			if (movement->IsOnGround())
 			{
-				stats->UseMana(0.6f);
 				Game::GetCamera()->SetIsZoom(true);
 
 				movement->SetCanMove(false);

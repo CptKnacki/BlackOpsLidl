@@ -2,6 +2,9 @@
 #include "Game.h"
 #include "Kismet.h"
 
+#include "RecipeIngredient.h"
+#include "PlayerInventoryComponent.h"
+
 CollectableActor::CollectableActor(const string& _name, const ShapeData& _data, const float _range,
 								   const string& _title, const string& _text, const ItemType& _type) 
 								 : Actor(_name, _data)
@@ -36,14 +39,22 @@ CollectableActor::CollectableActor(const string& _name, const ShapeData& _data, 
 void CollectableActor::TryToCollect()
 {
 	if (!player)
-	{
 		player = Game::GetPlayer();
-	}
 	
 	const Vector2f& _playerPos = player->GetShapePosition();
 	if (Distance(GetShapePosition(), _playerPos) <= 100)
 	{
-		player->GetInventory()->AddItem(1, data);
+		RecipeIngredient* _ingredient = dynamic_cast<RecipeIngredient*>(this);
+
+		if (!_ingredient)
+			return;
+		
+		PlayerInventoryComponent* _inventoryComponent = player->GetComponent<PlayerInventoryComponent>();
+
+		if (!_inventoryComponent)
+			return;
+		
+		_inventoryComponent->AddCraftPart(_ingredient);
 		SetToRemove(true);
 	}
 }

@@ -26,7 +26,7 @@ public:
 	bool hasBeenVisited = false;
 
 public:
-	Node(GridPointData* _data, Vector2f _position);
+	Node(GridPointData* _data, Vector2f _position, int _gap);
 
 
 public:

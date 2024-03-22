@@ -21,6 +21,7 @@ class ShapeObject : public Object
 protected:
 	Shape* shape;
 
+
 public:
 	void SetShape(Shape* _shape)
 	{

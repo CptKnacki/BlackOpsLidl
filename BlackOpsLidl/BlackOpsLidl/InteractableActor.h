@@ -44,4 +44,5 @@ public:
 	virtual void Update(const float _deltaTime);
 	virtual void OpenDiscussion();
 	virtual void CloseDiscussion();
+	virtual void Interact();
 };

@@ -1,20 +1,32 @@
 #include "Node.h"
 #include "Kismet.h"
+#include "GPE_Fence.h"
 
-Node::Node(GridPointData* _data, Vector2f _position)
+Node::Node(GridPointData* _data, Vector2f _position, int _gap)
 {
 	gridData = _data;
 	position = _position;
+	size = Vector2f(_gap, _gap);
 }
 
 void Node::CheckForObstacle()
 {
-	HitInfo _info;
+	vector<HitInfo> _infos;
 	vector<Actor*> _actorToIgnore;
-	
-	cout << to_string(isOpen) + "\n";
+	Vector2f _castPosition = position - (size * 0.5f);
 
-	//BoxCast(FloatRect(position, size), _info, _actorToIgnore);
+	bool _hit = BoxCastAll(FloatRect(_castPosition, size), _infos, _actorToIgnore);
+
+	for (HitInfo _info  : _infos)
+	{
+		GPE_Fence* _fence = dynamic_cast<GPE_Fence*>(_info.actor);
+	
+		if (_fence)
+		{
+		cout << "Has Collision with Fence \n";
+			isOpen = false;
+		}
+	}
 
 }
 

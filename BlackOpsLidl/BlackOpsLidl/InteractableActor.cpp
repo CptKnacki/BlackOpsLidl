@@ -62,6 +62,10 @@ void InteractableActor::CloseDiscussion()
 	discussionText->SetVisible(false);
 }
 
+void InteractableActor::Interact()
+{
+}
+
 
 void InteractableActor::Init()
 {

@@ -415,7 +415,6 @@ void Inventory::AddItem(const int _count, const ItemData& _data)
 	else if (_data.type == IT_GEOS)
 	{
 		int _winningGains = Random<int>(100, 1);
-		Game::GetPlayer()->GetStats()->UpdateGeos(_winningGains);
 	}
 }
 
