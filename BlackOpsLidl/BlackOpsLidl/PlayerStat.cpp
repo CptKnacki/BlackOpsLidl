@@ -27,7 +27,7 @@ PlayerStat::PlayerStat(Player* _player) : Menu("PlayerStat", nullptr)
 	currentStamina = maxStamina;
 	staminaRegen = 5;
 	
-	moneyCount = 2000;
+	moneyCount = 8500;
 	
 	headShotPercentage = 15;
 

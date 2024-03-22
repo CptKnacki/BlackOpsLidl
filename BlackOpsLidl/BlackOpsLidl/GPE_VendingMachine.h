@@ -11,7 +11,7 @@ class GPE_VendingMachine : public InteractableActor
 	bool isAvailable = true;
 
 public:
-	GPE_VendingMachine(const ShapeData& _data, int _vendingPrice);
+	GPE_VendingMachine(const ShapeData& _data, GPE_BonusDrink* _bonusDrink, int _vendingPrice);
 
 	int GetVendingPrice() const { return vendingPrice; }
 	bool GetIsAvailable() const { return isAvailable; }
