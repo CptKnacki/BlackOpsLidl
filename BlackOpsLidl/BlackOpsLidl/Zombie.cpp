@@ -50,15 +50,17 @@ void Zombie::Update(const float _deltaTime)
 
 void Zombie::FollowPathToPlayer()
 {
-	//if (currentPath.size() == 0)
-	//	return;
-	//
-	//if (movement->IsAtPosition() && currentNodeIndex < currentPath.size() - 2)
-	//	currentNodeIndex++;
-	//	
-	//movement->SetDestination(currentPath[currentNodeIndex]->position);
+	if (currentPath.size() == 0)
+		return;
+	
+	if (movement->IsAtPosition())
+		currentNodeIndex++;
+		
+	if (currentNodeIndex >= currentPath.size())
+		return;
 
-	// TODO FIX LE CRASH ZEBI
+	movement->SetDestination(currentPath[currentNodeIndex]->position);
+
 }
 
 void Zombie::DrawCurrentPath()

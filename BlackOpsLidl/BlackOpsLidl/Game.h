@@ -8,6 +8,7 @@
 #include "Camera.h"
 #include "GridNavigation.h"
 #include "Bullet.h"
+#include "InGameMenu.h"
 
 using namespace std;
 using namespace sf;
@@ -59,6 +60,8 @@ class Game
 	MainMenu* menu;
 	static Map* map;
 
+	static InGameMenu* inGameMenu;
+
 private:
 	static Player* player;
 	static Camera* camera;
@@ -67,6 +70,10 @@ private:
 	static GridNavigation* grid;
 
 public:
+	static InGameMenu* GetInGameMenu()
+	{
+		return inGameMenu;
+	}
 	static RenderWindow& GetWindow()
 	{
 		return window;

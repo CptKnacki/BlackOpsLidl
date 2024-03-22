@@ -47,6 +47,8 @@ bool ZombieWaveManager::CheckEndOfWave()
 
 void ZombieWaveManager::StartNewWave()
 {
+    waveCount++;
+
     cout << "NEW WAVE ! \n";
     for (ZombieSpawner* _spawner : allSpawners)
     {

@@ -4,12 +4,11 @@
 #include "TextureManager.h"
 
 #define PATH_SHOP "UIs/Shop/Shop.png"
-#define PATH_GEO "UIs/Shop/Geo.png"
+#define PATH_DOLLAR "DollarBill.png"
 
 PurchaseMenu::PurchaseMenu(Menu* _owner) : Menu("Purchase", _owner)
 {
 	buttons = vector<Button*>();
-	canBuy = true;
 }
 
 
@@ -20,8 +19,8 @@ void PurchaseMenu::Init()
 
 	#pragma region Background
 
-	const Vector2f& _shopSize = Vector2f(_halfWindowSize.x * 0.8f, _windowSize.y);
-	const Vector2f& _shopPos = Vector2f(_halfWindowSize.x + _shopSize.x / 2.0f, _halfWindowSize.y);
+	const Vector2f& _shopSize = Vector2f(_halfWindowSize.x, _windowSize.y);
+	const Vector2f& _shopPos = Vector2f(_halfWindowSize.x, _halfWindowSize.y);
 	ShapeWidget* _shop = new ShapeWidget(ShapeData(_shopPos, _shopSize, PATH_SHOP));
 	canvas->AddWidget(_shop);
 
@@ -32,24 +31,24 @@ void PurchaseMenu::Init()
 	canvas->AddWidget(title);
 
 	const float _itemPosY = _titlePosY + 75.0f;
-	const Vector2f& _itemSize = Vector2f(70.0f, 70.0f);
+	const Vector2f& _itemSize = Vector2f(135.0f, 85.0f);
 	icon = new ShapeWidget(ShapeData(Vector2f(_shopPos.x, _itemPosY), _itemSize, ""));
 	canvas->AddWidget(icon);
 
-	const float _geoPosY = _titlePosY + 150.0f;
-	const Vector2f& _geoSize = Vector2f(30.0f, 30.0f);
-	ShapeWidget* _geo = new ShapeWidget(ShapeData(Vector2f(_shopPos.x - 50.0f, _geoPosY), _geoSize, PATH_GEO));
-	canvas->AddWidget(_geo);
+	const float _dollarPosY = _titlePosY + 130.0f;
+	const Vector2f& _dollarSize = Vector2f(60.0f, 40.0f);
+	ShapeWidget* _dollar = new ShapeWidget(ShapeData(Vector2f(_shopPos.x - 50.0f, _dollarPosY), _dollarSize, PATH_DOLLAR));
+	canvas->AddWidget(_dollar);
 
-	price = new Label(TextData("", Vector2f(_shopPos.x + 5.0f, _geoPosY), FONT, 22));
+	price = new Label(TextData("", Vector2f(_shopPos.x + 5.0f, _dollarPosY), FONT, 22));
 	canvas->AddWidget(price);
 
-	const float _questionPosY = _geoPosY + 50.0f;
+	const float _questionPosY = _dollarPosY + 50.0f;
 	Label* _question = new Label(TextData("Purchase this item ?", Vector2f(_shopPos.x, _questionPosY), FONT, 16));
 	canvas->AddWidget(_question);
 
 	const float _warnMessagePosY = _shopPos.y + _shopSize.y * 0.25f;
-	warnMessage = new Label(TextData("You don't have enough money !", Vector2f(_shopPos.x, _warnMessagePosY), FONT, 16));
+	warnMessage = new Label(TextData("", Vector2f(_shopPos.x, _warnMessagePosY), FONT, 16));
 	warnMessage->SetVisible(false);
 	canvas->AddWidget(warnMessage);
 
@@ -71,6 +70,7 @@ void PurchaseMenu::Init()
 		ButtonData("Yes", [&]() {
 			if (canBuy)
 			{
+				BuyCurrentItem();
 				SetStatus(false);
 			}
 		}),
@@ -129,7 +129,22 @@ void PurchaseMenu::SetItem(const SellItem& _item)
 	TextureManager::GetInstance().Load(icon->GetObject(), _item.path);
 	price->SetString(to_string(_item.price));
 
+	SetCanBuyItem();
+
 
 	buyLabel->GetDrawable()->setFillColor(canBuy ? Color::White : Color(96, 96, 96));
-	warnMessage->SetVisible(!canBuy);
+	warnMessage->SetString(canBuy ? "" : "You don't have enough money !");
+}
+
+void PurchaseMenu::SetCanBuyItem()
+{
+	int _playerMoney = Game::GetPlayer()->GetStats()->GetMoney();
+	canBuy = (_playerMoney >= item.price);
+	cout << to_string(canBuy);
+}
+
+void PurchaseMenu::BuyCurrentItem()
+{
+	// TODO ADD ITEM TO INVENTORY
+	Game::GetPlayer()->GetStats()->UpdateMoney(-item.price);
 }

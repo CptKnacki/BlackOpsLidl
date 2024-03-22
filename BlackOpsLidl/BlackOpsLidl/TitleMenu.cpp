@@ -47,6 +47,7 @@ void TitleMenu::Init()
 		ButtonData("Start Game", [&]() { 
 			Game::GetPlayer()->Init();
 			SetStatus(false);
+			Game::GetInGameMenu()->SetStatus(true);
 			new SoundData(SOUND_CONFIRM, 100, false);
 		}),
 		ButtonData("Options", [&]() {

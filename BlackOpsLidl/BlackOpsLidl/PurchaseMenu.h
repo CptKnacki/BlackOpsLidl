@@ -27,4 +27,6 @@ public:
 public:
 	virtual void Init() override;
 	void SetItem(const SellItem& _item);
+	void SetCanBuyItem();
+	void BuyCurrentItem();
 };

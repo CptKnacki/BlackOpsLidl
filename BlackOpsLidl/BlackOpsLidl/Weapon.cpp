@@ -2,11 +2,13 @@
 #include "TextureManager.h"
 #include"Macro.h"
 
-
 #define PATH_WEAPON "Assets/Textures/Weapons/weapon1.png"
 
 Weapon::Weapon()
 {
+
+
+
 }
 
 Weapon::Weapon(Vector2f _position) 

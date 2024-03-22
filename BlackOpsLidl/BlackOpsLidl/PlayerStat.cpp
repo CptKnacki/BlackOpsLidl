@@ -13,7 +13,7 @@
 #define PATH_MANA_FULL "UIs/Player/Mana/ManaBar_Full.png"
 #define PATH_MANA_EMPTY "UIs/Player/Mana/ManaBar_Empty.png"
 #define PATH_GEO "UIs/Inventory/Geo.png"
-#define FONT "Font.ttf"
+#define FONT "pixelmix.ttf"
 #define PATH_DEATHMOB "Animations/DeathMob.png"
 
 PlayerStat::PlayerStat(Player* _player) : Menu("PlayerStat", nullptr)
@@ -27,7 +27,7 @@ PlayerStat::PlayerStat(Player* _player) : Menu("PlayerStat", nullptr)
 	currentStamina = maxStamina;
 	staminaRegen = 5;
 	
-	moneyCount = 750;
+	moneyCount = 2000;
 	
 	headShotPercentage = 15;
 

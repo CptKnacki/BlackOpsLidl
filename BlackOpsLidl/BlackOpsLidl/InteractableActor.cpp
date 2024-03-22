@@ -6,7 +6,7 @@
 
 #define PATH_INTERACTION "UIs/Discussions/Interaction.png"
 #define PATH_DISCUSSION "UIs/Discussions/Dialog.png"
-#define FONT "Font.ttf"
+#define FONT "pixelmix.ttf"
 
 InteractableActor::InteractableActor(const string& _name, const ShapeData& _data) : Actor(_name, _data, CT_OVERLAP)
 {

@@ -17,7 +17,7 @@ public:
 	PlayerInventoryComponent(Actor* _owner);
 
 	vector<RecipeIngredient*> GetCraftPart() const { return craftPart; }
-
+	vector<GPE_BonusDrink*> GetBonusDrinks() const { return drinks; }
 public: 
 	void AddBonusDrink(GPE_BonusDrink* _drink);
 	void AddCraftPart(RecipeIngredient* _ingredient) { craftPart.push_back(_ingredient); }

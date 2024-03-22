@@ -100,6 +100,7 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HuskBully.cpp" />
     <ClCompile Include="IANavigationComponent.cpp" />
+    <ClCompile Include="InGameMenu.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="InspectComponent.cpp" />
     <ClCompile Include="InteractableActor.cpp" />
@@ -260,6 +261,7 @@
     <ClInclude Include="IANavigationComponent.h" />
     <ClInclude Include="IManagable.h" />
     <ClInclude Include="IManager.h" />
+    <ClInclude Include="InGameMenu.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InspectComponent.h" />
     <ClInclude Include="InteractableActor.h" />

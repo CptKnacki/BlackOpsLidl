@@ -16,11 +16,13 @@ Player* Game::player;
 Camera* Game::camera;
 Brightness* Game::brightness;
 GridNavigation* Game::grid;
+InGameMenu* Game::inGameMenu;
 
 #include "TriggerBox.h"
 
 #define PATH_MERCHAND "Characters/PNJ/Merchand.png"
 #define PATH_ZOMBIE "Animations/Zombie.png"
+#define PATH_BUS "Bus.png"
 
 #define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
 #define PATH_VERTICAL_FENCE "VerticalFence.png"
@@ -29,17 +31,27 @@ GridNavigation* Game::grid;
 #include "Zombie.h"
 #include "GPE_Fence.h"
 #include "GPE_CraftingTable.h"
+#include "GPE_Bus.h"
 
 Game::Game()
 {
 	menu = new MainMenu();
+
+	inGameMenu = new InGameMenu(menu);
+	inGameMenu->SetStatus(false);
+
 	player = new Player("Player", ShapeData(Vector2f(0, 0), Vector2f(75.0f, 75.0f), PATH_PLAYER));
+	
 	map = new Map();
+	
 	camera = new Camera();
+	
 	brightness = new Brightness();
 
 	grid = new GridNavigation(17, 50, Vector2f(-300,-400));
-} 
+
+}
+
 
 Game::~Game()
 {
@@ -79,6 +91,9 @@ void Game::Init()
 	ShapeData _merchandData = ShapeData(Vector2f(900.0f, -250.0f), _merchandSize, PATH_MERCHAND);
 	Merchand* _merchand = new Merchand(_merchandData);
 
+	Vector2f _busSize = Vector2f(250.0f, 200.0f);
+	GPE_Bus* _bus = new GPE_Bus(ShapeData(Vector2f(1300.0f, -250.0f), _busSize, PATH_BUS));
+
 
 	grid->Generate();
 	Vector2f _sizeZombie = Vector2f(80, 80);
@@ -116,6 +131,7 @@ void Game::Update()
 		player->GetLight()->setPosition(player->GetShapePosition().x + 50.0f, player->GetShapePosition().y + 50.0f);
 		ActorManager::GetInstance().Update();
 		ZombieWaveManager::GetInstance().Update();
+		inGameMenu->UpdateMenu();
 	}
 }
 
@@ -134,8 +150,8 @@ void Game::UpdateWindow()
 	//window.draw(*player->GetLight());
 	DrawUIs();
 
-	grid->ShowNodes();
-	ZombieWaveManager::GetInstance().DrawZombiesPath();
+	//grid->ShowNodes();
+	//ZombieWaveManager::GetInstance().DrawZombiesPath();
 
 
 	window.display();

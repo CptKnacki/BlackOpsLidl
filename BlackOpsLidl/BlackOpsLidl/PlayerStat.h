@@ -54,6 +54,24 @@ public:
 	{
 		return maxLife;
 	}
+
+	void SetCurrentStamina(const int _newStamina)
+	{
+		currentStamina = _newStamina;
+	}
+	int GetCurrentStamina() const
+	{
+		return currentStamina;
+	}
+
+	void SetMaxStamina(const int _maxStamina)
+	{
+		maxStamina = _maxStamina;
+	}
+	int GetMaxStamina() const
+	{
+		return maxStamina;
+	}
 	
 	int GetMoney() const
 	{

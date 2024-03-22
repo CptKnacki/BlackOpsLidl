@@ -25,53 +25,7 @@ ItemType = 2
 }
 ]
 
-platforms = [
-{
- PlatformPosX = 1200
- PlatformPosY = -185
- PlatformType = 2
-}
-{
- PlatformPosX = 900
- PlatformPosY = -385
- PlatformType = 1
-}
-{
- PlatformPosX = 1200
- PlatformPosY = -585
- PlatformType = 0
-}
-{
- PlatformPosX = 1500
- PlatformPosY = -785
- PlatformType = 1
-}
-{
- PlatformPosX = 1800
- PlatformPosY = -585
- PlatformType = 1
-}
-{
- PlatformPosX = 2100
- PlatformPosY = -785
- PlatformType = 0
-}
-{
- PlatformPosX = 2500
- PlatformPosY = -955
- PlatformType = 0
-}
-]
 
-grounds = [
-{
- GroundPosX = 100
- GroundPosY = -90
- GroundSizeX = 20000
- GroundSizeY = 10
- GroundCollisionType = 3
-}
-]
 
 enemies = [
 {
@@ -85,16 +39,7 @@ enemies = [
 }
 ]
 
-npcs = [
-{
- NpcType = 0
- NpcPosX = 1000
- NpcPosY = -185
- NpcSizeX = 100
- NpcSizeY = 100
- NpcText = Je mets ceci au cas mais normalement useless
-}
-]
+
 
 Environment = [
 {
