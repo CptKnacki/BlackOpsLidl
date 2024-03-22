@@ -19,6 +19,7 @@ GridNavigation* Game::grid;
 
 #include "TriggerBox.h"
 
+#define PATH_MERCHAND "Characters/PNJ/Merchand.png"
 #define PATH_ZOMBIE "Animations/Zombie.png"
 
 #define PATH_HORIZONTAL_FENCE "HorizontalFence.png"
@@ -74,6 +75,9 @@ void Game::Init()
 	ShapeData _craftData = ShapeData(Vector2f(700.0f, -250.0f), _craftSize, PATH_CRAFT_TABLE);
 	GPE_CraftingTable* _craftingTable = new GPE_CraftingTable(_craftData);
 
+	Vector2f _merchandSize = Vector2f(80.0f, 110.0f);
+	ShapeData _merchandData = ShapeData(Vector2f(900.0f, -250.0f), _merchandSize, PATH_MERCHAND);
+	Merchand* _merchand = new Merchand(_merchandData);
 
 
 	grid->Generate();
@@ -134,7 +138,6 @@ void Game::UpdateWindow()
 	ZombieWaveManager::GetInstance().DrawZombiesPath();
 
 
-	//DrawUIs();
 	window.display();
 }
 

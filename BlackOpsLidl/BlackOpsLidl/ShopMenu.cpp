@@ -6,12 +6,20 @@
 #define PATH_ITEM "UIs/Inventory/Core.png"
 #define PATH_LANTERN "UIs/Inventory/Lantern.png"
 
+
+#define PATH_AK47 "Weapons/AK-47.png"
+#define PATH_TEC9 "Weapons/TEC-9.png"
+#define PATH_MP9 "Weapons/MP9.png"
+#define PATH_SCOUT "Weapons/SCOUT.png"
+#define PATH_VEKTOR2 "Weapons/VEKTOR-2.png"
+#define PATH_BARRET50 "Weapons/BARRET-50.png"
+
 #define PATH_SHOP "UIs/Shop/Shop.png"
-#define PATH_GEO "UIs/Shop/Geo.png"
+#define PATH_DOLLAR "DollarBill.png"
 
 ShopMenu::ShopMenu(Menu* _owner, Merchand* _merchand) : Menu("Shop", _owner)
 {
-	timeBeforeOpenShop = 8.0f;
+	timeBeforeOpenShop = 1.0f;
 	buttons = vector<Button*>();
 	descriptionTitle = nullptr;
 	descriptionText = nullptr;
@@ -39,22 +47,42 @@ void ShopMenu::Init()
 
 	items = {
 		{
-			PATH_LANTERN,
-			200,
-			"Lantern",
-			"This is a simple lantern."
+			PATH_TEC9,
+			850,
+			"TEC-9",
+			"A small full auto handgun but with a very bad temper."
 		},
 		{
-			PATH_ITEM,
-			300,
-			"Gathering Swarm",
-			"Do you find yourself leaving a\n"
-			"lot of Geo behind as you hurry\n"
-			"through the caverns ?\n\n"
-			"This charm will make sure that\n"
-			"any loose change finds its way\n"
-			"back to you."
+			PATH_MP9,
+			1600,
+			"MP9",
+			"A popular submachine gun easy to control but not to handle."
 		},
+		{
+			PATH_VEKTOR2,
+			1850,
+			"Vektor-2",
+			"A cool submachine gun known for his incredible fire rate."
+		},
+		{
+			PATH_SCOUT,
+			2100,
+			"Scout",
+			"A Simple sniper rifle that may or may not help you bunny hop."
+		},
+		{
+			PATH_AK47,
+			2700,
+			"AK-47",
+			"The one and only legendary rifle."
+		},
+		{
+			PATH_BARRET50,
+			3500,
+			"Barret-50",
+			"A massive sniper rifle that can pierce throught almost anything."
+		},
+
 	};
 
 	const float _widgetPosX = _shopPos.x - _shopSize.x * 0.35f;
@@ -104,7 +132,7 @@ void ShopMenu::Init()
 		canvas->AddWidget(_widget);
 		_button->SetForeground(_widget);
 
-		ShapeWidget* _geo = new ShapeWidget(ShapeData(Vector2f(_geoPosX, _posY), _geoSize, PATH_GEO));
+		ShapeWidget* _geo = new ShapeWidget(ShapeData(Vector2f(_geoPosX, _posY), _geoSize, PATH_DOLLAR));
 		canvas->AddWidget(_geo);
 
 		Label* _geoText = new Label(TextData(to_string(_item.price), Vector2f(_geoTextPosX, _posY - 3.5f), FONT), AT_LEFT);
