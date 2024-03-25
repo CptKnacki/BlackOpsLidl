@@ -3,6 +3,7 @@
 
 #define PATH_LIFEBAR "UIs/InGame/lifebar.png"
 #define PATH_STAMINABAR "UIs/InGame/staminabar.png"
+#define PATH_WEAPON "Weapons/AK-47.png"
 
 
 class InGameMenu : public Menu
@@ -19,6 +20,7 @@ class InGameMenu : public Menu
 
 	vector<string> items;
 	vector<string> drinks;
+
 
 public:
 	InGameMenu(Menu* _owner);

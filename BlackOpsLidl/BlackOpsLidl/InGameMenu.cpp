@@ -26,6 +26,15 @@ InGameMenu::InGameMenu(Menu* _owner) : Menu("InGame", _owner)
 	Vector2f _staminaBarSize = Vector2f(550, 30);
 	staminaBar = new ShapeWidget(ShapeData(_staminaBarPosition, _staminaBarSize, PATH_STAMINABAR));
 	canvas->AddWidget(staminaBar);
+
+	Vector2f _weaponPosition = Vector2f(1750, 1000);
+	Vector2f _weaponSize = Vector2f(350, 150);
+	currentWeapon = new ShapeWidget(ShapeData(_weaponPosition, _weaponSize, PATH_WEAPON));
+	canvas->AddWidget(currentWeapon);
+
+	Vector2f _currentWeaponBulletsPosition = Vector2f(1850, 1050);
+	currentWeaponBulletsText = new Label(TextData("30/30", _currentWeaponBulletsPosition, FONT, 18, Color::Red), AT_CENTER);
+	canvas->AddWidget(currentWeaponBulletsText);
 }
 
 void InGameMenu::Init()
